@@ -1,0 +1,16 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card.json",
+  "serverInfo": {
+    "name": "Neptune Logistics",
+    "version": "1.0.0",
+    "description": "Neptune Logistics LK — freight forwarding, customs clearing, and supply chain services in Sri Lanka"
+  },
+  "homepage": "https://neptunelogistics.lk/",
+  "contact": "https://neptunelogistics.lk/contact.html",
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  },
+  "transport": null
+}

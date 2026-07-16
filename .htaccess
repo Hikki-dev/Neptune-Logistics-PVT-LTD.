@@ -1,0 +1,58 @@
+# Neptune Logistics — Apache config for cPanel hosting
+# Replaces vercel.json / middleware.js, which only work on Vercel.
+
+# ---------- HTTPS + canonical host ----------
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.neptunelogistics\.lk$ [NC]
+RewriteRule ^ https://neptunelogistics.lk%{REQUEST_URI} [L,R=301]
+
+# ---------- Custom error page ----------
+ErrorDocument 404 /404.html
+
+# ---------- Content types for extensionless .well-known files ----------
+<IfModule mod_mime.c>
+  <FilesMatch "^(api-catalog|oauth-protected-resource|http-message-signatures-directory)$">
+    ForceType application/json
+  </FilesMatch>
+  <FilesMatch "^(jwks\.json|openid-configuration|oauth-authorization-server)$">
+    ForceType application/json
+  </FilesMatch>
+</IfModule>
+AddType text/markdown .md
+AddType application/json .json
+
+# ---------- CORS + caching for the agent/AI discovery files ----------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(md)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+<Directory "/.well-known">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</Directory>
+
+# ---------- Compression ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/markdown
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+</IfModule>
+
+# ---------- Browser caching for static assets ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# ---------- Block direct access to sensitive files ----------
+<FilesMatch "^(\.env|build\.js|package\.json|package-lock\.json|supabase_setup\.sql)$">
+  Require all denied
+</FilesMatch>

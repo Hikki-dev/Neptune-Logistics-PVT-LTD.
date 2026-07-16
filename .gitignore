@@ -1,0 +1,9 @@
+.vercel
+.DS_Store
+.env
+node_modules/
+dist/
+scratch/
+supabase/.temp/
+.claude/launch.json
+.claude/static-server.js
