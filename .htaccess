@@ -56,3 +56,6 @@ AddType application/json .json
 <FilesMatch "^(\.env|build\.js|package\.json|package-lock\.json|supabase_setup\.sql)$">
   Require all denied
 </FilesMatch>
+
+# ---------- Block access to .git (cPanel Git Version Control clones it into this folder) ----------
+RewriteRule ^\.git/ - [F,L]
