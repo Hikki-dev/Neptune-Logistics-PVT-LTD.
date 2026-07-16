@@ -1,0 +1,14 @@
+{
+  "issuer": "https://neptunelogistics.lk",
+  "authorization_endpoint": "https://neptunelogistics.lk/oauth/authorize",
+  "token_endpoint": "https://neptunelogistics.lk/oauth/token",
+  "jwks_uri": "https://neptunelogistics.lk/.well-known/jwks.json",
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code"],
+  "subject_types_supported": ["public"],
+  "id_token_signing_alg_values_supported": ["RS256"],
+  "scopes_supported": ["openid"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "claims_supported": ["sub", "iss"],
+  "service_documentation": "https://neptunelogistics.lk/auth.md"
+}

@@ -1,0 +1,7 @@
+{
+  "resource": "https://neptunelogistics.lk",
+  "authorization_servers": ["https://neptunelogistics.lk"],
+  "scopes_supported": ["openid"],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://neptunelogistics.lk/auth.md"
+}

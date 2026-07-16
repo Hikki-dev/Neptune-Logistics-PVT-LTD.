@@ -1,0 +1,20 @@
+{
+  "issuer": "https://neptunelogistics.lk",
+  "authorization_endpoint": "https://neptunelogistics.lk/oauth/authorize",
+  "token_endpoint": "https://neptunelogistics.lk/oauth/token",
+  "jwks_uri": "https://neptunelogistics.lk/.well-known/jwks.json",
+  "response_types_supported": ["code"],
+  "grant_types_supported": ["authorization_code"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "scopes_supported": ["openid"],
+  "service_documentation": "https://neptunelogistics.lk/auth.md",
+  "agent_auth": {
+    "skill": "https://neptunelogistics.lk/.well-known/agent-skills/index.json",
+    "register_uri": "https://neptunelogistics.lk/contact.html",
+    "identity_types_supported": ["anonymous"],
+    "anonymous": {
+      "credential_types_supported": ["none"],
+      "claim_uri": "https://neptunelogistics.lk/auth.md"
+    }
+  }
+}

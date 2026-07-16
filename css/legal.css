@@ -1,0 +1,177 @@
+/* ============================================
+   NEPTUNE LOGISTICS - LEGAL SUBPAGES
+   ============================================ */
+
+.legal-header {
+  background: linear-gradient(135deg, var(--blue-deep) 0%, #060d1a 100%);
+  padding: 100px 0 60px;
+  color: var(--white);
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legal-nav {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+}
+
+.legal-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legal-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.legal-back-link:hover {
+  color: var(--white);
+}
+
+.legal-logo-img {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.legal-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.legal-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.legal-content-wrap {
+  padding: var(--section-pad) 0;
+  background: var(--blue-bg);
+}
+
+.legal-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 50px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.03);
+}
+
+.legal-text {
+  font-family: var(--font-body);
+  color: var(--dark-mid);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.legal-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-top: 32px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--blue-light);
+  padding-bottom: 8px;
+}
+
+.legal-text p {
+  margin-bottom: 20px;
+}
+
+.legal-text ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.legal-text li {
+  margin-bottom: 8px;
+}
+
+.legal-footer {
+  background: #060d1a;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.legal-footer-logo {
+  height: 60px;
+  margin-bottom: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.legal-footer-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.legal-footer-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.legal-footer-link:hover {
+  color: var(--white);
+}
+
+.legal-footer-divider {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.legal-footer-disclaimer {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.22);
+  text-align: center;
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .legal-card {
+    padding: 32px 24px;
+    border-radius: 12px;
+  }
+  .legal-header {
+    padding: 130px 0 40px;
+  }
+  .legal-logo-img {
+    height: 44px;
+  }
+  .legal-footer-logo {
+    height: 44px;
+  }
+}

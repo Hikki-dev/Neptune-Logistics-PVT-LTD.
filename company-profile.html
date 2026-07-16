@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Company Profile | Neptune Logistics (Pvt) Ltd</title>
+<meta name="description" content="Company profile of Neptune Logistics (Pvt) Ltd, a licensed freight forwarder and Customs House Agent in Colombo, Sri Lanka. 100% in-house operations across 60+ countries, built on 80+ years of family logistics heritage since 1944." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Neptune Logistics (Pvt) Ltd" />
+<link rel="canonical" href="https://neptunelogistics.lk/company-profile.html" />
+<meta property="og:title" content="Company Profile | Neptune Logistics (Pvt) Ltd" />
+<meta property="og:description" content="Licensed freight forwarder and Customs House Agent in Colombo, Sri Lanka. 100% in-house, 60+ countries, 80+ years of family logistics heritage since 1944." />
+<meta property="og:image" content="https://neptunelogistics.lk/assets/images/about-bg.webp" />
+<meta property="og:url" content="https://neptunelogistics.lk/company-profile.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Neptune Logistics" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Company Profile | Neptune Logistics" />
+<meta name="twitter:description" content="Licensed freight forwarder and Customs House Agent in Colombo, Sri Lanka. 100% in-house, 80+ years of heritage since 1944." />
+<meta name="twitter:image" content="https://neptunelogistics.lk/assets/images/about-bg.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue-deep: #0e2660;
+    --blue-mid: #2563eb;
+    --blue-accent: #3b82f6;
+    --blue-light: #dbeafe;
+    --blue-bg: #f8fafc;
+    --white: #ffffff;
+    --dark: #090d16;
+    --dark-mid: #1e293b;
+    --slate: #475569;
+    --slate-light: #64748b;
+    --border: rgba(37, 99, 235, 0.14);
+    --font-display: "Plus Jakarta Sans", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "Space Mono", monospace;
+  }
+
+  @page { size: 210mm 297mm; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--dark);
+    background: #e2e8f0;
+    line-height: 1.6;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  /* ---------- A4 PAGE FRAME ---------- */
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 296.8mm;
+    margin: 0 auto 10mm;
+    background: var(--white);
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .pad {
+    position: relative;
+    z-index: 2;
+    padding: 22mm 20mm;
+    height: 100%;
+  }
+
+  /* ---------- SHARED ELEMENTS ---------- */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue-mid);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+  .tag.light { color: #bfdbfe; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+  .tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-accent); }
+
+  .heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+    color: var(--dark);
+  }
+  .heading .grad {
+    background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .divider { width: 56px; height: 3px; background: linear-gradient(90deg, var(--blue-mid), var(--blue-accent)); border-radius: 2px; margin: 14px 0 22px; }
+  .lead { font-size: 11.5pt; color: var(--slate); line-height: 1.75; }
+  .body-txt { font-size: 10.5pt; color: var(--slate); line-height: 1.7; }
+
+  .page-footer {
+    position: absolute;
+    bottom: 12mm; left: 20mm; right: 20mm;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--slate-light);
+    border-top: 1px solid var(--border);
+    padding-top: 7px; z-index: 3;
+  }
+  .page-footer .pf-brand { color: var(--blue-mid); font-weight: 700; }
+
+  /* ---------- COVER (PAGE 1) ---------- */
+  .cover { background: #06112e; }
+  .cover-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      linear-gradient(180deg, rgba(6,17,46,0.62) 0%, rgba(6,17,46,0.78) 55%, rgba(6,17,46,0.97) 100%),
+      url("assets/images/heritage-present-ship.webp");
+    background-size: cover; background-position: center;
+  }
+  .cover-glow { position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 70% 50% at 75% 18%, rgba(59,130,246,0.30) 0%, transparent 60%); }
+  .cover .pad { display: flex; flex-direction: column; height: 100%; }
+  .cover-logochip {
+    align-self: flex-start;
+    background: #ffffff; border-radius: 12px; padding: 14px 22px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  .cover-logochip img { height: 52px; width: auto; }
+  .cover-center { margin-top: auto; }
+  .cover-kicker {
+    font-family: var(--font-mono); font-size: 10pt; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #93c5fd; margin-bottom: 18px;
+  }
+  .cover-title {
+    font-family: var(--font-display); font-weight: 800; color: #fff;
+    font-size: 46pt; line-height: 0.98; letter-spacing: -0.025em;
+  }
+  .cover-title .grad {
+    background: linear-gradient(120deg, #60a5fa 0%, #bfdbfe 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .cover-sub {
+    margin-top: 22px; color: #cbd5e1; font-size: 12pt; line-height: 1.7;
+    max-width: 150mm; font-weight: 300;
+  }
+  .cover-meta {
+    margin-top: 34px; display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.16);
+    padding-top: 22px;
+  }
+  .cover-meta .cm {
+    padding-right: 26px; margin-right: 26px; border-right: 1px solid rgba(255,255,255,0.14);
+  }
+  .cover-meta .cm:last-child { border-right: none; }
+  .cover-meta .cm-num { font-family: var(--font-display); font-weight: 800; font-size: 22pt; color: #fff; line-height: 1; }
+  .cover-meta .cm-num span { color: #60a5fa; }
+  .cover-meta .cm-lbl { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.1em; text-transform: uppercase; color: #94a3b8; margin-top: 6px; }
+  .cover-doc { margin-top: 30px; font-family: var(--font-mono); font-size: 9pt; letter-spacing: 0.18em; text-transform: uppercase; color: #64748b; }
+
+  /* ---------- SECTION LABEL HEADER ---------- */
+  .sec-head { margin-bottom: 8mm; }
+  .sec-head .heading { font-size: 30pt; margin-top: 12px; }
+
+  /* ---------- ABOUT (PAGE 2) ---------- */
+  .stat-band {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    background: linear-gradient(135deg, var(--blue-deep) 0%, #163a8a 100%);
+    border-radius: 14px; overflow: hidden; margin: 7mm 0;
+  }
+  .stat-band .sb {
+    padding: 16px 18px; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-band .sb-num { font-family: var(--font-display); font-weight: 800; font-size: 19pt; color: #fff; line-height: 1; }
+  .stat-band .sb-num span { color: #7cc0ff; }
+  .stat-band .sb-lbl { font-size: 8.5pt; color: #b9c7e6; margin-top: 6px; font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .callout {
+    margin-top: 7mm; background: var(--blue-bg); border: 1px solid var(--border);
+    border-left: 4px solid var(--blue-mid); border-radius: 12px; padding: 22px 24px;
+  }
+  .callout-title { font-family: var(--font-display); font-weight: 800; font-size: 14pt; color: var(--blue-deep); margin-bottom: 8px; }
+  .callout-title span { color: var(--blue-mid); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
+
+  /* ---------- MISSION/VISION (PAGE 3) ---------- */
+  .mv-card { background: var(--blue-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; height: 100%; }
+  .mv-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid)); color: #fff; margin-bottom: 14px; }
+  .mv-card h3 { font-family: var(--font-display); font-weight: 800; font-size: 16pt; color: var(--blue-deep); margin-bottom: 8px; }
+  .mv-card p { font-size: 10pt; color: var(--slate); line-height: 1.7; }
+
+  .quote-block {
+    margin-top: 8mm; background: linear-gradient(135deg, var(--blue-deep) 0%, #0b1f4d 100%);
+    border-radius: 16px; padding: 30px 32px; position: relative; overflow: hidden;
+  }
+  .quote-block::before { content: "\201C"; position: absolute; top: -10px; left: 18px; font-family: Georgia, serif;
+    font-size: 90pt; color: rgba(124,192,255,0.18); line-height: 1; }
+  .quote-block p { color: #e2e8f0; font-size: 11.5pt; line-height: 1.7; font-style: italic; position: relative; z-index: 1; }
+  .quote-author { margin-top: 16px; font-family: var(--font-display); font-weight: 700; color: #fff; font-size: 10.5pt; }
+  .quote-role { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase; color: #93c5fd; margin-top: 2px; }
+
+  .value-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 8mm; }
+  .vs-item { border: 1px solid var(--border); border-radius: 12px; padding: 18px 18px 20px; background: #fff; }
+  .vs-num { font-family: var(--font-mono); font-size: 8pt; letter-spacing: 0.1em; color: var(--blue-accent); margin-bottom: 10px; }
+  .vs-txt { font-size: 9.3pt; color: var(--slate); line-height: 1.55; }
+  .vs-txt strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--blue-deep); margin-bottom: 5px; }
+
+  /* ---------- SERVICES (PAGE 4) ---------- */
+  .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+  .svc-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;
+    box-shadow: 0 8px 24px rgba(37,99,235,0.05); display: flex; flex-direction: column; }
+  .svc-img { height: 26mm; width: 100%; object-fit: cover; }
+  .svc-body { padding: 13px 15px 15px; }
+  .svc-num { font-family: var(--font-mono); font-size: 8pt; color: var(--blue-accent); letter-spacing: 0.1em; }
+  .svc-title { font-family: var(--font-display); font-weight: 700; font-size: 11.5pt; color: var(--blue-deep); margin: 2px 0 5px; }
+  .svc-desc { font-size: 8.7pt; color: var(--slate); line-height: 1.5; }
+
+  /* ---------- INDUSTRIES (PAGE 5) ---------- */
+  .ind-list { display: flex; flex-direction: column; gap: 5mm; margin-top: 6mm; }
+  .ind-row { display: flex; gap: 18px; align-items: flex-start; border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px; background: #fff; }
+  .ind-icon { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: var(--blue-bg); border: 1px solid var(--border); }
+  .ind-icon svg { width: 24px; height: 24px; stroke: var(--blue-mid); }
+  .ind-row h3 { font-family: var(--font-display); font-weight: 700; font-size: 12pt; color: var(--blue-deep); margin-bottom: 4px; }
+  .ind-row p { font-size: 9.5pt; color: var(--slate); line-height: 1.6; }
+
+  /* ---------- WHY US (PAGE 6) ---------- */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 6mm; }
+  .why-card { background: var(--blue-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+  .why-num { font-family: var(--font-display); font-weight: 800; font-size: 30pt; line-height: 1;
+    background: linear-gradient(135deg, var(--blue-mid), var(--blue-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .why-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 13pt; color: var(--blue-deep); margin: 10px 0 6px; }
+  .why-card p { font-size: 9.7pt; color: var(--slate); line-height: 1.65; }
+
+  /* ---------- CONTACT (PAGE 7) ---------- */
+  .contact { background: #06112e; }
+  .contact-bg { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(180deg, rgba(6,17,46,0.86) 0%, rgba(6,17,46,0.96) 100%),
+      url("assets/images/about-bg.webp");
+    background-size: cover; background-position: center; }
+  .contact .pad { display: flex; flex-direction: column; height: 100%; }
+  .contact h2 { font-family: var(--font-display); font-weight: 800; color: #fff; font-size: 34pt; line-height: 1.02; margin: 14px 0 6px; }
+  .contact h2 .grad { background: linear-gradient(120deg, #60a5fa, #bfdbfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .contact-sub { color: #cbd5e1; font-size: 11.5pt; max-width: 140mm; margin-bottom: 12mm; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 10mm; }
+  .ct-item .ct-lbl { font-family: var(--font-mono); font-size: 8.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: #60a5fa; margin-bottom: 6px; }
+  .ct-item .ct-val { color: #e2e8f0; font-size: 11pt; line-height: 1.6; }
+  .ct-item .ct-val strong { color: #fff; font-weight: 600; }
+  .contact-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.16); padding-top: 22px; }
+  .contact-logochip { background: #fff; border-radius: 10px; padding: 12px 18px; }
+  .contact-logochip img { height: 40px; width: auto; }
+  .contact-web { font-family: var(--font-mono); font-size: 10pt; letter-spacing: 0.1em; color: #93c5fd; }
+
+  @media print {
+    html, body { background: #fff; width: 210mm; }
+    .page { margin: 0; box-shadow: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<section class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-glow"></div>
+  <div class="pad">
+    <div class="cover-logochip">
+      <img src="assets/logo-transparent.webp" alt="Neptune Logistics" />
+    </div>
+    <div class="cover-center">
+      <div class="cover-kicker">Company Profile</div>
+      <h1 class="cover-title">Your End-to-End<br /><span class="grad">Supply Chain Partner</span></h1>
+      <p class="cover-sub">Licensed Freight Forwarder &amp; Customs House Agent based in Colombo, Sri Lanka — moving cargo across 60+ countries with every step handled by our own in-house teams.</p>
+      <div class="cover-meta">
+        <div class="cm"><div class="cm-num">80<span>+</span></div><div class="cm-lbl">Years of Heritage</div></div>
+        <div class="cm"><div class="cm-num">60<span>+</span></div><div class="cm-lbl">Countries Served</div></div>
+        <div class="cm"><div class="cm-num">100<span>%</span></div><div class="cm-lbl">In-House Control</div></div>
+      </div>
+      <div class="cover-doc">Neptune Logistics (Pvt) Ltd · neptunelogistics.lk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 — ABOUT ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="sec-head">
+      <span class="tag">01 — Who We Are</span>
+      <h2 class="heading">A logistics partner <span class="grad">built for accountability.</span></h2>
+      <div class="divider"></div>
+    </div>
+    <p class="lead">Neptune Logistics is Sri Lanka's trusted in-house logistics provider, delivering end-to-end supply chain solutions across 60+ countries. Every step — sea freight, air freight, customs clearance, warehousing, port operations and inland transport — is handled by our own dedicated teams. Established in 2017 in Colombo, we operate under 100% in-house control with zero outsourcing, giving our clients speed, security and a single point of responsibility.</p>
+
+    <div class="stat-band">
+      <div class="sb"><div class="sb-num">2017</div><div class="sb-lbl">Established in Colombo</div></div>
+      <div class="sb"><div class="sb-num">60<span>+</span></div><div class="sb-lbl">Countries Served</div></div>
+      <div class="sb"><div class="sb-num">80<span>+</span></div><div class="sb-lbl">Years Family Heritage</div></div>
+      <div class="sb"><div class="sb-num">100<span>%</span></div><div class="sb-lbl">In-House Control</div></div>
+      <div class="sb"><div class="sb-num">0</div><div class="sb-lbl">Third-Party Outsourcing</div></div>
+      <div class="sb"><div class="sb-num">CHA</div><div class="sb-lbl">Govt-Licensed Agent</div></div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Our Difference: <span>100% In-House Control</span></div>
+      <p class="body-txt">No middlemen. No third-party outsourcing. From quay to doorstep, your cargo stays under one accountable team — translating directly into faster clearance, tighter security, and a single point of responsibility for your entire supply chain.</p>
+    </div>
+  </div>
+  <div class="page-footer"><span class="pf-brand">Neptune Logistics (Pvt) Ltd</span><span>Company Profile · 02</span></div>
+</section>
+
+<!-- ============ PAGE 3 — MISSION / VISION / LEADERSHIP ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="sec-head">
+      <span class="tag">03 — Purpose &amp; Direction</span>
+      <h2 class="heading">Mission, vision &amp; <span class="grad">leadership.</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="two-col">
+      <div class="mv-card">
+        <div class="mv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To add value to our esteemed clients by providing freight forwarding together with complete logistics solutions. Our success depends on our clients' success.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>To become the most reliable, environmentally friendly and cost-efficient logistics company in the Asia region — delivered in an exceptionally professional, quality-conscious and sustainable manner.</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>Moving goods from one point to another is integral to today's society. As the business of logistics and supply chain management grows more complex, one must constantly innovate and upgrade. At Neptune Logistics we continuously improve our service-delivery processes with the sole objective of exceeding client expectations and staying ahead of the competition.</p>
+      <div class="quote-author">Message from the Leadership</div>
+      <div class="quote-role">Neptune Logistics (Pvt) Ltd</div>
+    </div>
+
+    <div class="value-strip">
+      <div class="vs-item"><div class="vs-num">01</div><div class="vs-txt"><strong>Reliable</strong>Dependable execution on every shipment, every time.</div></div>
+      <div class="vs-item"><div class="vs-num">02</div><div class="vs-txt"><strong>Sustainable</strong>Environmentally responsible logistics across the chain.</div></div>
+      <div class="vs-item"><div class="vs-num">03</div><div class="vs-txt"><strong>Cost-Efficient</strong>Optimized routing that protects your bottom line.</div></div>
+    </div>
+  </div>
+  <div class="page-footer"><span class="pf-brand">Neptune Logistics (Pvt) Ltd</span><span>Company Profile · 03</span></div>
+</section>
+
+<!-- ============ PAGE 4 — SERVICES ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="sec-head">
+      <span class="tag">04 — What We Do</span>
+      <h2 class="heading">Six services. <span class="grad">One accountable team.</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/service-customs.webp" alt="Customs clearance" />
+        <div class="svc-body">
+          <div class="svc-num">01</div>
+          <div class="svc-title">Same-Day Customs Clearance</div>
+          <div class="svc-desc">Government-licensed CHA clearing cargo within 24 hours at all Sri Lankan ports and airports. Full HS-code classification and regulatory document management, stationed inside Colombo Port and Bandaranaike International Airport.</div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/sea-freight.webp" alt="Sea freight" />
+        <div class="svc-body">
+          <div class="svc-num">02</div>
+          <div class="svc-title">Sea / Ocean Freight</div>
+          <div class="svc-desc">FCL and LCL routes worldwide, with direct space allocations from major carriers, weekly LCL consolidation to key regional hubs, and cost-optimized combination sea-air routing.</div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/air-freight.webp" alt="Air freight" />
+        <div class="svc-body">
+          <div class="svc-num">03</div>
+          <div class="svc-title">Air Freight</div>
+          <div class="svc-desc">Sri Lanka's leading perishable air cargo agent — seafood, fresh produce and flowers — with continuous cold-chain monitoring and access to freighter charters for urgent or out-of-gauge shipments.</div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/service-warehousing.webp" alt="Warehousing" />
+        <div class="svc-body">
+          <div class="svc-num">04</div>
+          <div class="svc-title">Warehousing &amp; Distribution</div>
+          <div class="svc-desc">Secure, inventory-managed storage in Colombo with 24/7 CCTV, access control and fire suppression. Digitized stock tracking, packing, labeling, and rapid cross-docking.</div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/service-port.webp" alt="Port handling" />
+        <div class="svc-body">
+          <div class="svc-num">05</div>
+          <div class="svc-title">Port Handling</div>
+          <div class="svc-desc">In-house operations at Colombo, Hambantota and Trincomalee ports — vessel loading/unloading oversight, container tallying, quay transfer, and direct customs-gate coordination.</div>
+        </div>
+      </div>
+      <div class="svc-card">
+        <img class="svc-img" src="assets/images/service-roadways.webp" alt="Roadways cargo" />
+        <div class="svc-body">
+          <div class="svc-num">06</div>
+          <div class="svc-title">Roadways Cargo</div>
+          <div class="svc-desc">An asset-owned fleet of prime movers, container trailers and box trucks providing island-wide coverage, with GPS-tracked vehicles for real-time inland transit visibility.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span class="pf-brand">Neptune Logistics (Pvt) Ltd</span><span>Company Profile · 04</span></div>
+</section>
+
+<!-- ============ PAGE 5 — INDUSTRIES ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="sec-head">
+      <span class="tag">05 — Industries We Serve</span>
+      <h2 class="heading">Specialized handling for <span class="grad">demanding sectors.</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="ind-list">
+      <div class="ind-row">
+        <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V8l5-3 5 3v12M14 20V11l6-3v12"/></svg></div>
+        <div><h3>Manufacturing &amp; Automotive</h3><p>Just-in-time (JIT) coordination for automotive parts and factory raw materials, with delivery scheduling matched precisely to production-line requirements.</p></div>
+      </div>
+      <div class="ind-row">
+        <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></div>
+        <div><h3>Retail &amp; FMCG</h3><p>Dynamic shipping and consolidation tuned to consumer demand peaks, with high-turnover storage and quick distribution dispatch.</p></div>
+      </div>
+      <div class="ind-row">
+        <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20" /><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div>
+        <div><h3>Healthcare &amp; Pharmaceuticals</h3><p>Continuous temperature-monitored transport — ambient, chilled and frozen — under strict validation protocols complying with global pharma distribution standards.</p></div>
+      </div>
+      <div class="ind-row">
+        <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+        <div><h3>Aviation &amp; Aerospace</h3><p>24/7 emergency parts clearance and urgent shipping for Aircraft-on-Ground (AOG) situations, plus handling of specialized aerospace engines and equipment.</p></div>
+      </div>
+      <div class="ind-row">
+        <div class="ind-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div><h3>Aid &amp; Relief</h3><p>Urgent humanitarian cargo forwarding in coordination with international agencies, with priority customs handling and rapid dispatch.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span class="pf-brand">Neptune Logistics (Pvt) Ltd</span><span>Company Profile · 05</span></div>
+</section>
+
+<!-- ============ PAGE 6 — WHY US ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="sec-head">
+      <span class="tag">06 — Why Neptune</span>
+      <h2 class="heading">The case for <span class="grad">Neptune Logistics.</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Quality</h3>
+        <p>Quality is not an option but a necessity to thrive in global competition. We aim for total customer satisfaction that earns lasting loyalty.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>Compliance</h3>
+        <p>Thoroughly committed to conforming with international and local laws and the highest ethical standards of conducting business.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>In-House Control</h3>
+        <p>One accountable team across the entire chain — no outsourcing, no handoffs — delivering speed, security and a single point of responsibility.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>Global Reach + Local Knowledge</h3>
+        <p>International network links in 60+ locations combined with deep, on-the-ground Sri Lankan expertise — our key competitive edge.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span class="pf-brand">Neptune Logistics (Pvt) Ltd</span><span>Company Profile · 06</span></div>
+</section>
+
+<!-- ============ PAGE 7 — CONTACT ============ -->
+<section class="page contact">
+  <div class="contact-bg"></div>
+  <div class="pad">
+    <span class="tag light">07 — Get in Touch</span>
+    <h2>Let's move <span class="grad">your cargo.</span></h2>
+    <p class="contact-sub">Talk to our team about freight, customs clearance, warehousing or full supply-chain solutions — handled end-to-end, entirely in-house.</p>
+
+    <div class="contact-grid">
+      <div class="ct-item">
+        <div class="ct-lbl">Head Office</div>
+        <div class="ct-val"><strong>66B Vivekananda Hill, Kotahena,</strong><br />Colombo 13, 01300, Sri Lanka</div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-lbl">Telephone</div>
+        <div class="ct-val"><strong>+94 117 991 105</strong></div>
+        <div class="ct-lbl" style="margin-top:12px;">WhatsApp Support</div>
+        <div class="ct-val"><strong>+94 777 441 990</strong></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-lbl">Email</div>
+        <div class="ct-val"><strong>info@neptunelogistics.lk</strong></div>
+        <div class="ct-lbl" style="margin-top:12px;">Website</div>
+        <div class="ct-val"><strong>neptunelogistics.lk</strong></div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-lbl">Business Hours</div>
+        <div class="ct-val">Mon – Fri: 08:30 – 17:30<br />Sat: 08:30 – 13:00<br />Sun / Holidays: Closed<br /><span style="color:#7cc0ff;">Emergency services 24/7</span></div>
+      </div>
+    </div>
+
+    <div class="contact-foot">
+      <div class="contact-logochip"><img src="assets/logo-transparent.webp" alt="Neptune Logistics" /></div>
+      <div class="contact-web">neptunelogistics.lk</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

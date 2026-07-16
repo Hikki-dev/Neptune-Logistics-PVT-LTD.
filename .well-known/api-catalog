@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://neptunelogistics.lk/",
+      "https://www.iana.org/assignments/link-relations/service-doc": [
+        { "href": "https://neptunelogistics.lk/docs/api" }
+      ],
+      "https://www.iana.org/assignments/link-relations/describedby": [
+        { "href": "https://neptunelogistics.lk/.well-known/api-catalog", "type": "application/linkset+json" }
+      ]
+    },
+    {
+      "anchor": "https://neptunelogistics.lk/contact.html",
+      "https://www.iana.org/assignments/link-relations/type": [
+        { "href": "https://schema.org/ContactPage" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# Neptune Logistics
+
+> Licensed Freight Forwarder and Customs House Agent (CHA) in Sri Lanka. 100% in-house sea freight, air freight, customs clearance, warehousing, and road transport.
+
+## Main Navigation
+- [Home](https://neptunelogistics.lk/) - Homepage showing overview of core services, family heritage, and statistics.
+- [About Us](https://neptunelogistics.lk/about.html) - History, mission, and family heritage of Neptune Logistics.
+- [Portfolio](https://neptunelogistics.lk/portfolio.html) - Case studies and details of successfully delivered complex logistics projects.
+- [Tracking](https://neptunelogistics.lk/tracking.html) - Container and shipment tracking status lookup.
+- [Contact Us](https://neptunelogistics.lk/contact.html) - Head office address, telephone, email, and quote request form.
+
+## Services
+- [Sea Freight](https://neptunelogistics.lk/services/sea-freight.html) - FCL & LCL ocean cargo, direct carrier relations, and in-house port teams.
+- [Air Freight](https://neptunelogistics.lk/services/air-freight.html) - Fast air cargo forwarding, perishables handling, and dedicated air charters.
+- [Customs Clearance](https://neptunelogistics.lk/services/customs-clearance.html) - Government-licensed Same Day customs clearance (within 24 hours).
+- [Warehousing](https://neptunelogistics.lk/services/warehousing.html) - Short/long term secure storage, packing, and container consolidation.
+- [Port Handling](https://neptunelogistics.lk/services/port-handling.html) - Direct port coordination and container movement at Colombo port.
+- [Roadways](https://neptunelogistics.lk/services/roadways.html) - Inland transport fleet connecting ports and warehouses across Sri Lanka.
+
+## Industries Served
+- [Automotive](https://neptunelogistics.lk/industries/automotive.html) - JIT parts delivery and supply chain management for the automotive sector.
+- [Aviation & Aerospace](https://neptunelogistics.lk/industries/aviation-aerospace.html) - Critical aerospace parts shipment and round-the-clock clearance.
+- [Pharmaceutical](https://neptunelogistics.lk/industries/pharmaceutical.html) - Validated cold chain, temperature-controlled shipping for pharmaceuticals.
+- [Aid & Relief](https://neptunelogistics.lk/industries/aid-relief.html) - Specialized, urgent logistics solutions for aid, relief, and humanitarian cargo.

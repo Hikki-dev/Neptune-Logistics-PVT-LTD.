@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "name": "Neptune Logistics",
+  "url": "https://neptunelogistics.lk",
+  "skills": [
+    {
+      "name": "api-catalog",
+      "type": "api-catalog",
+      "description": "Discover available API endpoints and documentation for Neptune Logistics",
+      "url": "https://neptunelogistics.lk/.well-known/api-catalog"
+    },
+    {
+      "name": "mcp-server-card",
+      "type": "mcp-server-card",
+      "description": "MCP Server Card describing Neptune Logistics agent integration capabilities",
+      "url": "https://neptunelogistics.lk/.well-known/mcp/server-card.json"
+    }
+  ]
+}

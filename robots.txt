@@ -1,0 +1,19 @@
+# robots.txt — Neptune Logistics (Pvt) Ltd
+# https://neptunelogistics.lk
+#
+# AI assistants and answer engines are welcome here.
+# For a curated, machine-readable guide to this site, see:
+#   https://neptunelogistics.lk/llms.txt
+#   https://neptunelogistics.lk/llms-full.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+# Content Signals — https://contentsignals.org/
+# search   = yes  -> may be used to build a search index
+# ai-input = yes  -> may be used as input for AI answers (RAG / grounding / citations)
+# ai-train = no   -> may NOT be used to train AI models
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+Sitemap: https://neptunelogistics.lk/sitemap.xml
