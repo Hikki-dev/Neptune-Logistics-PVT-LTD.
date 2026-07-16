@@ -8,7 +8,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin.html
 
 # Content Signals — https://contentsignals.org/
 # search   = yes  -> may be used to build a search index
