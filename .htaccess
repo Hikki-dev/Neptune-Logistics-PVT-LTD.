@@ -29,13 +29,9 @@ AddType application/json .json
   <FilesMatch "\.(md)$">
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
+  SetEnvIf Request_URI "^/\.well-known/" WELLKNOWN
+  Header set Access-Control-Allow-Origin "*" env=WELLKNOWN
 </IfModule>
-
-<Directory "/.well-known">
-  <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-  </IfModule>
-</Directory>
 
 # ---------- Compression ----------
 <IfModule mod_deflate.c>
