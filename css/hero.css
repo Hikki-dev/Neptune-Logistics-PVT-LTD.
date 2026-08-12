@@ -394,119 +394,118 @@
   margin-top: 2px;
 }
 
-/* ─── Hero Card 2: Charter-Ready — Premium Component ──────────── */
+/* ─── Hero Card 2: Charter Ready — dark ops-console panel ────────────
+   Deliberately breaks from the light glass-card language used elsewhere
+   in the hero: a dense navy surface with a single accent spine and a
+   low-opacity watermark icon, styled like a cargo-ops readout rather
+   than a generic SaaS feature list. */
 .hero-card-2 {
-  min-width: 240px;
+  min-width: 254px;
   padding: 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(37, 99, 235, 0.14);
-  box-shadow:
-    0 4px 6px -1px rgba(0,0,0,0.04),
-    0 20px 40px -8px rgba(37, 99, 235, 0.12),
-    0 0 0 1px rgba(255,255,255,0.6) inset;
+  background: linear-gradient(165deg, #122a4d 0%, #0a1428 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 54px -20px rgba(3, 7, 18, 0.5);
 }
 
-/* Dark navy header */
+.hero-card-2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--blue-accent), var(--blue-mid));
+}
+
+.hc2-watermark {
+  position: absolute;
+  right: -20px;
+  bottom: -24px;
+  width: 118px;
+  height: 118px;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+.hc2-watermark svg { width: 100%; height: 100%; }
+
 .hc2-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 10px;
+  padding: 16px 18px 13px 20px;
+  position: relative;
 }
 
-/* Icon circle */
 .hc2-header-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  color: #93c5fd;
+  width: 18px;
+  height: 18px;
+  color: #7dd3fc;
   flex-shrink: 0;
 }
 
 .hc2-header-title {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #f8fafc;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
   line-height: 1.2;
 }
 
 .hc2-header-sub {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: #94a3b8;
+  font-size: 0.64rem;
+  color: #8b9ab8;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
-/* Service rows */
+/* Service rows — plain label / value pairs, no status dots or pills */
 .hc2-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 4px 0;
+  position: relative;
+  padding: 2px 0 15px;
 }
 
 .hc2-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.05);
+  justify-content: space-between;
+  gap: 18px;
+  padding: 9px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   transition: background 0.2s ease;
 }
 
-.hc2-row:last-child {
-  border-bottom: none;
-}
-
 .hc2-row:hover {
-  background: rgba(37, 99, 235, 0.025);
+  background: rgba(255, 255, 255, 0.03);
+}
+.hc2-row:hover .hc2-tag {
+  color: #bfdbfe;
 }
 
-/* Status dots */
-.hc2-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.hc2-green { background: #22c55e; box-shadow: 0 0 0 2px rgba(34,197,94,0.15); }
-.hc2-blue  { background: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,0.15); }
-.hc2-amber { background: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.15); }
-
-/* Row label */
 .hc2-row-label {
-  flex: 1;
   font-family: var(--font-body);
-  font-size: 0.83rem;
-  color: #334155;
+  font-size: 0.82rem;
+  color: #cbd5e1;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-/* Badge chips */
 .hc2-tag {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 2px 6px;
-  border-radius: 4px;
-  flex-shrink: 0;
+  letter-spacing: 0.03em;
+  color: #8b9ab8;
+  white-space: nowrap;
+  transition: color 0.2s ease;
 }
-.hc2-tag-green { background: #f0fdf4; color: #16a34a; border: 1px solid rgba(22,163,74,0.2); }
-.hc2-tag-blue  { background: #eff6ff; color: #1d4ed8; border: 1px solid rgba(29,78,216,0.2); }
-.hc2-tag-amber { background: #fffbeb; color: #b45309; border: 1px solid rgba(180,83,9,0.2); }
+.hc2-tag-primary { color: #60a5fa; }
 
 /* Scroll indicator */
 .hero-scroll {
@@ -545,7 +544,7 @@
 /* Responsive */
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .hero-right { max-width: 400px; margin: 0 auto; }
+  .hero-right { width: 100%; max-width: 400px; margin: 0 auto; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }
 }
 @media (max-width: 600px) {
@@ -606,13 +605,12 @@
     right: 20px;
     bottom: auto;
     left: auto;
-    width: auto;
+    width: max-content;
     min-width: 200px;
     max-width: calc(100% - 40px);
     transform: scale(0.8);
     transform-origin: top right;
     margin: 0;
-    box-shadow: 0 8px 24px rgba(37,99,235,0.06);
     animation: card-float-mobile-2 5s ease-in-out infinite -2.5s;
   }
 }
