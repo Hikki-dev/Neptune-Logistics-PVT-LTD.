@@ -4198,6 +4198,11 @@ textarea.hero-text-input {
     order: 0;
   }
 
+  .service-action-row {
+    display: flex;
+    justify-content: center;
+  }
+
   .hubs-grid {
     grid-template-columns: 1fr;
   }
@@ -4336,6 +4341,15 @@ textarea.hero-text-input {
   .cred-item {
     flex: 1 1 auto;
     min-width: 0;
+  }
+
+  /* The 3rd item alone on its own row (2-up wrap) is centered instead of
+     sitting left-aligned under the first column. Dividers between items are
+     hidden but still present in the DOM, so :last-child (not :nth-child) is
+     what correctly targets the final .cred-item regardless of their count. */
+  .cred-item:last-child {
+    flex-basis: 100%;
+    align-items: center;
   }
 
   .cred-val,
