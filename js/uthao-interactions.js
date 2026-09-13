@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCareerApplyModal();
   initContactForm();
   initOfficeLocatorToggle();
+  initMobileCollapsibleLists();
 });
 
 /* ==========================================================================
@@ -1513,6 +1514,46 @@ function initOfficeLocatorToggle() {
       const query = encodeURIComponent(btn.dataset.query);
       iframe.src = `https://maps.google.com/maps?q=${query}&output=embed`;
       iframe.title = btn.dataset.title;
+    });
+  });
+}
+
+/* ==========================================================================
+   8c. MOBILE "SHOW MORE" COLLAPSE (FAQ lists, alternating detail rows)
+   Mobile only (gated entirely by CSS media query, so this is a no-op visually
+   on desktop): trims long repeated lists down to a short default and reveals
+   the rest behind one toggle button, so mobile visitors aren't stuck
+   scrolling past a dozen FAQ items or five near-identical feature rows.
+   ========================================================================== */
+function initMobileCollapsibleLists() {
+  const configs = [
+    { list: '.faq-accordion-list', itemClass: 'faq-item', keep: 3, label: 'question' },
+    { list: '.service-alt-rows-wrap', itemClass: 'service-alt-row', keep: 2, label: 'section' },
+  ];
+
+  configs.forEach(({ list, itemClass, keep, label }) => {
+    document.querySelectorAll(list).forEach((container) => {
+      const items = Array.from(container.children).filter((el) => el.classList.contains(itemClass));
+      if (items.length <= keep) return;
+
+      const extra = items.slice(keep);
+      extra.forEach((el) => el.classList.add('mobile-collapsible-extra'));
+      container.classList.add('mobile-collapsible-list');
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'mobile-collapsible-toggle';
+      const plural = extra.length > 1 ? 's' : '';
+      const updateLabel = () => {
+        const expanded = container.classList.contains('is-expanded');
+        btn.textContent = expanded ? 'Show less' : `Show ${extra.length} more ${label}${plural}`;
+      };
+      updateLabel();
+      btn.addEventListener('click', () => {
+        container.classList.toggle('is-expanded');
+        updateLabel();
+      });
+      container.insertAdjacentElement('afterend', btn);
     });
   });
 }
