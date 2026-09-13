@@ -58,22 +58,16 @@ In-house port operations at Sri Lanka's key ports (Colombo Port, Hambantota Port
 - **Operations:** Vessel loading/unloading oversight, container tallying, and quay transfer.
 - **Customs Coordination:** Direct coordination between port terminals and customs gates.
 
-### 6. Roadways Cargo
-Asset-owned trucking and container transport.
-- **Fleet:** Dedicated prime movers, container trailers, and box trucks.
-- **Coverage:** Island-wide transport connecting ports, warehouses, factories, and retail hubs.
-- **Visibility:** Direct dispatch communication with drivers for transit status updates.
-
-### 7. Container Cargo
-Equipment specification and intermodal container drayage.
+### 6. Container Cargo
+Equipment specification and intermodal container drayage, with an asset-owned fleet of prime movers, container trailers, and box trucks providing island-wide coverage.
 - **Fleet:** Standard, high-cube, reefer, open-top, and flat-rack containers.
 - **Drayage:** Direct port-to-door container haulage with in-house prime movers.
 
-### 8. Rail Transport
+### 7. Rail Transport
 Heavy haul and inland block train coordination for high-volume cargo.
 - **Coverage:** Block train scheduling for bulk and containerized cargo between key inland hubs.
 
-### 9. Last Mile Delivery
+### 8. Last Mile Delivery
 Islandwide dispatch and doorstep fulfillment for commercial cargo.
 - **Coverage:** Final-leg delivery from warehouse or port to consignee, anywhere in Sri Lanka.
 
