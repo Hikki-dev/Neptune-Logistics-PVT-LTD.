@@ -375,8 +375,8 @@
       centerX - radius * 0.2, centerY - radius * 0.2, radius * 0.1,
       centerX, centerY, radius
     );
-    sphereGrad.addColorStop(0, '#2563eb');
-    sphereGrad.addColorStop(0.15, '#1e3a8a');
+    sphereGrad.addColorStop(0, '#0a56ff');
+    sphereGrad.addColorStop(0.15, '#0842c9');
     sphereGrad.addColorStop(0.4, '#0f172a');
     sphereGrad.addColorStop(0.8, '#090d16');
     sphereGrad.addColorStop(1, '#02040a');
@@ -384,7 +384,7 @@
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.fillStyle = sphereGrad;
-    ctx.shadowColor = 'rgba(37, 99, 235, 0.1)';
+    ctx.shadowColor = 'rgba(10, 86, 255, 0.1)';
     ctx.shadowBlur = 40;
     ctx.fill();
     ctx.shadowBlur = 0;
@@ -392,7 +392,7 @@
     // DRAW GLOBE OUTLINE BOUNDARY
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(37, 99, 235, 0.15)';
+    ctx.strokeStyle = 'rgba(10, 86, 255, 0.15)';
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -410,7 +410,7 @@
           : (0.05 * (1 - Math.abs(rotated.z) / radius * 0.7));
 
         if (isFront) {
-          ctx.fillStyle = `rgba(59, 130, 246, ${opacity * 1.5})`;
+          ctx.fillStyle = `rgba(244, 191, 79, ${opacity * 1.5})`;
           ctx.fillRect(proj.x, proj.y, 1.2, 1.2);
         } else {
           ctx.fillStyle = `rgba(71, 85, 105, ${opacity})`;
@@ -440,7 +440,7 @@
           const horizonFade = 1 - Math.max(0, avgZ / (radius * 0.3));
           const opacity = 0.38 * horizonFade;
           
-          ctx.strokeStyle = `rgba(147, 197, 253, ${opacity * 2.2})`;
+          ctx.strokeStyle = `rgba(249, 217, 153, ${opacity * 2.2})`;
           ctx.lineWidth = 1.5;
           ctx.stroke();
         }
@@ -506,7 +506,7 @@
         }
       }
 
-      ctx.strokeStyle = `rgba(37, 99, 235, 0.25)`;
+      ctx.strokeStyle = `rgba(10, 86, 255, 0.25)`;
       ctx.lineWidth = 0.9;
       ctx.stroke();
 
@@ -533,7 +533,7 @@
           pulseProj.x, pulseProj.y, pSize * 2
         );
         pulseGrad.addColorStop(0, '#ffffff');
-        pulseGrad.addColorStop(0.3, '#3b82f6');
+        pulseGrad.addColorStop(0.3, '#38bdf8');
         pulseGrad.addColorStop(1, 'transparent');
         
         ctx.beginPath();
@@ -564,8 +564,8 @@
         ctx.beginPath();
         ctx.arc(pin.screenX, pin.screenY, (4 + pulseSize) * pin.scale, 0, Math.PI * 2);
         ctx.strokeStyle = pin.isHub 
-          ? `rgba(37, 99, 235, ${(1 - pulseSize/6) * 0.4})`
-          : `rgba(37, 99, 235, ${(1 - pulseSize/6) * 0.55})`;
+          ? `rgba(10, 86, 255, ${(1 - pulseSize/6) * 0.4})`
+          : `rgba(10, 86, 255, ${(1 - pulseSize/6) * 0.55})`;
         ctx.lineWidth = 1.2;
         ctx.stroke();
       }
@@ -581,8 +581,8 @@
           pin.screenX, pin.screenY, pinRadius
         );
         hubGrad.addColorStop(0, '#ffffff');
-        hubGrad.addColorStop(0.3, '#3b82f6');
-        hubGrad.addColorStop(1, '#0e2660');
+        hubGrad.addColorStop(0.3, '#38bdf8');
+        hubGrad.addColorStop(1, '#0b1222');
         ctx.fillStyle = hubGrad;
       } else {
         const pinGrad = ctx.createRadialGradient(
@@ -590,12 +590,12 @@
           pin.screenX, pin.screenY, pinRadius
         );
         pinGrad.addColorStop(0, '#ffffff');
-        pinGrad.addColorStop(0.3, isHovered ? '#3b82f6' : '#93c5fd');
-        pinGrad.addColorStop(1, isHovered ? '#2563eb' : '#3b82f6');
+        pinGrad.addColorStop(0.3, isHovered ? '#38bdf8' : '#9dd3fb');
+        pinGrad.addColorStop(1, isHovered ? '#0a56ff' : '#38bdf8');
         ctx.fillStyle = pinGrad;
       }
 
-      ctx.shadowColor = 'rgba(37, 99, 235, 0.35)';
+      ctx.shadowColor = 'rgba(10, 86, 255, 0.35)';
       ctx.shadowBlur = isHovered ? 10 : 5;
       ctx.fill();
       ctx.shadowBlur = 0;
@@ -641,29 +641,29 @@
       const targetY = offsetY > 0 ? labelY : labelY + rectH;
       ctx.lineTo(targetX, targetY);
       ctx.strokeStyle = isHovered 
-        ? 'rgba(37, 99, 235, 0.65)' 
-        : (pin.isHub ? 'rgba(37, 99, 235, 0.45)' : 'rgba(37, 99, 235, 0.25)');
+        ? 'rgba(10, 86, 255, 0.65)' 
+        : (pin.isHub ? 'rgba(10, 86, 255, 0.45)' : 'rgba(10, 86, 255, 0.25)');
       ctx.lineWidth = isHovered ? 1.2 : 0.8;
       ctx.stroke();
 
       // Draw premium rounded glassmorphism tag background
       drawRoundRect(ctx, labelX, labelY, rectW, rectH, 4 * pin.scale);
       ctx.fillStyle = isHovered 
-        ? 'rgba(30, 58, 138, 0.95)' 
+        ? 'rgba(209, 50, 5, 0.95)' 
         : (pin.isHub ? 'rgba(15, 32, 66, 0.9)' : 'rgba(15, 23, 42, 0.85)');
       ctx.fill();
 
       // Glowing tag border
       ctx.strokeStyle = isHovered 
-        ? '#3b82f6' 
-        : (pin.isHub ? 'rgba(37, 99, 235, 0.5)' : 'rgba(37, 99, 235, 0.3)');
+        ? '#38bdf8' 
+        : (pin.isHub ? 'rgba(10, 86, 255, 0.5)' : 'rgba(10, 86, 255, 0.3)');
       ctx.lineWidth = isHovered ? 1.4 : 0.9;
       ctx.stroke();
 
       // Draw tag text
       ctx.fillStyle = isHovered 
         ? '#ffffff' 
-        : (pin.isHub ? '#3b82f6' : 'rgba(255, 255, 255, 0.85)');
+        : (pin.isHub ? '#38bdf8' : 'rgba(255, 255, 255, 0.85)');
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
       ctx.fillText(labelText, labelX + padX, labelY + rectH / 2 + 0.5);
