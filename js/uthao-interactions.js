@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initOfficeLocatorToggle();
   initMobileCollapsibleLists();
+  initCookieConsent();
 });
 
 /* ==========================================================================
@@ -1571,6 +1572,50 @@ function initMobileNavAccordion() {
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
+}
+
+/* ==========================================================================
+   8e. COOKIE CONSENT BANNER
+   Site-wide, injected via JS (no per-page HTML). Gates real analytics: GA4
+   in js/analytics.js only fires once 'accepted' is stored here.
+   ========================================================================== */
+function initCookieConsent() {
+  const STORAGE_KEY = 'neptune-cookie-consent';
+  if (localStorage.getItem(STORAGE_KEY)) return;
+
+  const isSubdir = window.location.pathname.includes('/services/') || window.location.pathname.includes('/industries/');
+  const root = isSubdir ? '../' : './';
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-consent-banner';
+  banner.setAttribute('role', 'region');
+  banner.setAttribute('aria-label', 'Cookie consent');
+  banner.innerHTML = `
+    <p class="cookie-consent-text">
+      We use a few cookies to keep this site running smoothly and, only with your consent, to understand site traffic. See our
+      <a href="${root}privacy-policy.html">Privacy Policy</a> for details.
+    </p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="cookie-consent-btn decline">Decline</button>
+      <button type="button" class="cookie-consent-btn accept">Accept</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  requestAnimationFrame(() => {
+    document.body.classList.add('has-cookie-banner');
+    banner.classList.add('is-visible');
+  });
+
+  function dismiss(value) {
+    localStorage.setItem(STORAGE_KEY, value);
+    banner.classList.remove('is-visible');
+    document.body.classList.remove('has-cookie-banner');
+    window.setTimeout(() => banner.remove(), 400);
+  }
+
+  banner.querySelector('.accept').addEventListener('click', () => dismiss('accepted'));
+  banner.querySelector('.decline').addEventListener('click', () => dismiss('declined'));
 }
 
 /* ==========================================================================
