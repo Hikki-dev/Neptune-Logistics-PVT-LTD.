@@ -3560,7 +3560,7 @@ body.has-cookie-banner .whatsapp-float-btn {
 }
 
 .about-hero-section {
-  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.75) 100%), url("/assets/uthao/about-hero-image.avif");
+  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.75) 100%), url("/assets/images/about-hero-lotus-tower.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
