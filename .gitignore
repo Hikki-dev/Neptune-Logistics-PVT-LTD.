@@ -7,3 +7,4 @@ scratch/
 supabase/.temp/
 .claude/launch.json
 .claude/static-server.js
+assets/containers/

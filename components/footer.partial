@@ -1,95 +1,106 @@
-<footer class="footer" role="contentinfo">
+<footer class="uthao-footer" role="contentinfo">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="/assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="footer-logo-img" loading="lazy" width="160" height="40">
+    <div class="footer-top-grid">
+
+      <div class="footer-col brand-col">
+        <a href="index.html" class="footer-brand-link">
+          <img src="assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="footer-logo" width="240" height="62" />
+        </a>
+        <p class="footer-tagline">
+          Licensed Customs House Agent (CHA) and international freight forwarder headquartered in Colombo, Sri Lanka. Delivering trusted ocean, air, and multimodal logistics across 60+ countries.
+        </p>
+        <div class="footer-contact-details">
+          <div class="contact-address-group">
+            <span class="contact-line-label">Head Office</span>
+            <div class="contact-line">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              <a href="https://maps.app.goo.gl/YFt2YaJy2cF98gv99" target="_blank" rel="noopener">66B Vivekananda Hill, Kotahena, Colombo 13, Sri Lanka</a>
+            </div>
+          </div>
+          <div class="contact-address-group">
+            <span class="contact-line-label">City Office</span>
+            <div class="contact-line">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+              <a href="https://maps.app.goo.gl/6D6avTdMo2KVXc9p6" target="_blank" rel="noopener">344/17 Jampettah Street, Colombo 13, Sri Lanka</a>
+            </div>
+          </div>
         </div>
-        <p class="footer-tagline">Founded 2017. Built on 80+ years of family logistics heritage.</p>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/company/neptune-logistics-pvt-ltd" class="footer-social"
-            aria-label="LinkedIn" target="_blank" rel="noopener">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-              <circle cx="4" cy="4" r="2" />
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Logistics Services</h4>
+        <ul class="footer-links-list">
+          <li><a href="ocean-cargo.html">Ocean Cargo Forwarding</a></li>
+          <li><a href="air-cargo.html">Air Cargo Forwarding</a></li>
+          <li><a href="container-cargo.html">Container Cargo</a></li>
+          <li><a href="rail-transport.html">Rail Transport</a></li>
+          <li><a href="last-mile-delivery.html">Last Mile Delivery</a></li>
+          <li><a href="services/customs-clearance.html">Customs Clearance (CHA)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Company &amp; Hubs</h4>
+        <ul class="footer-links-list">
+          <li><a href="about.html">About Neptune Logistics</a></li>
+          <li><a href="index.html#hubs">Port of Colombo Hubs</a></li>
+          <li><a href="index.html#global-network">Global Trade Network</a></li>
+          <li><a href="index.html#industries">Industries We Serve</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Operations &amp; Social</h4>
+        <p class="footer-hours-text">
+          <strong>Mon - Fri:</strong> 08:30 - 17:30 IST<br />
+          <strong>Saturday:</strong> 08:30 - 13:00 IST<br />
+          <strong>Emergency Desk:</strong> 24/7 Available
+        </p>
+        <div class="contact-line" style="margin-bottom: 10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+          <a href="mailto:info@neptunelogistics.lk">info@neptunelogistics.lk</a>
+        </div>
+        <div class="contact-line" style="margin-bottom: 16px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+          <a href="tel:+94777441990">+94 77 744 1990</a>
+        </div>
+        <div class="footer-social-row">
+          <a href="https://www.linkedin.com/company/neptune-logistics-pvt-ltd/?viewAsMember=true" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Neptune LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
           </a>
-          <a href="https://www.facebook.com/neptunelogisticslk" class="footer-social" aria-label="Neptune Logistics on Facebook"
-            target="_blank" rel="noopener"><svg width="16" height="16"
-              viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-            </svg></a>
-          <a href="https://twitter.com/neptunelogistics" class="footer-social" aria-label="Neptune Logistics on Twitter"
-            target="_blank" rel="noopener"><svg width="16" height="16"
-              viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-            </svg></a>
+          <a href="https://api.whatsapp.com/send?phone=94777441990" target="_blank" rel="noopener" class="footer-social-icon" aria-label="Neptune WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.012 2C6.48 2 2 6.48 2 12.01c0 1.77.46 3.48 1.34 5L2 22l5.14-1.35c1.47.8 3.12 1.22 4.87 1.22 5.53 0 10.01-4.48 10.01-10.01C22.02 6.48 17.54 2 12.012 2zm6.2 13.92c-.27.77-1.56 1.48-2.15 1.56-.51.07-1.17.1-3.37-.82-2.8-1.17-4.58-4.01-4.72-4.2-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.54-.34.72-.34h.52c.16 0 .37-.06.57.41.2.49.7 1.72.76 1.85.07.13.1.29.02.46-.08.17-.18.28-.35.48-.17.2-.36.43-.52.59-.18.17-.37.37-.16.73.21.36.94 1.55 2.01 2.5 1.38 1.22 2.54 1.6 2.9 1.76.36.15.57.12.78-.12.21-.24.91-1.06 1.15-1.42.24-.36.48-.3.8-.18.32.12 2.03 1.00 2.38 1.17.35.17.58.25.66.39.09.14.09.82-.18 1.59z"/>
+            </svg>
+          </a>
         </div>
       </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <ul class="footer-links" role="list">
-          <li><a href="/services/sea-freight.html" class="footer-link">Sea Freight</a></li>
-          <li><a href="/services/air-freight.html" class="footer-link">Air Freight</a></li>
-          <li><a href="/services/customs-clearance.html" class="footer-link">Customs Clearance</a></li>
-          <li><a href="/services/warehousing.html" class="footer-link">Warehousing</a></li>
-          <li><a href="/services/port-handling.html" class="footer-link">Port Handling</a></li>
-          <li><a href="/services/roadways.html" class="footer-link">Roadways Cargo</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Industries</div>
-        <ul class="footer-links" role="list">
-          <li><a href="/industries/aid-relief.html" class="footer-link">Aid & Relief</a></li>
-          <li><a href="/industries/automotive.html" class="footer-link">Automotive</a></li>
-          <li><a href="/industries/aviation-aerospace.html" class="footer-link">Aviation & Aerospace</a></li>
-          <li><a href="/industries/pharmaceutical.html" class="footer-link">Pharmaceuticals</a></li>
-          <li><a href="/index.html#industries" class="footer-link">All Industries</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <ul class="footer-links" role="list">
-          <li><a href="/about.html" class="footer-link">About Us</a></li>
-          <li><a href="/portfolio.html" class="footer-link">Project Portfolio</a></li>
-          <li><a href="/about.html#why" class="footer-link">Why Neptune</a></li>
-          <li><a href="/index.html#reach" class="footer-link">Global Reach</a></li>
-          <li><a href="/about.html#trust" class="footer-link">Our Commitments</a></li>
-          <li><a href="/contact.html" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <ul class="footer-links" role="list">
-          <li class="footer-contact-group">
-            <span class="footer-contact-label">Head Office</span>
-            <a href="https://maps.app.goo.gl/YFt2YaJy2cF98gv99" target="_blank" rel="noopener"
-              class="footer-link address-link">66B Vivekananda Hill, Kotahena, Colombo 13</a>
-          </li>
-          <li class="footer-contact-group">
-            <span class="footer-contact-label">City Office</span>
-            <a href="https://maps.app.goo.gl/6D6avTdMo2KVXc9p6" target="_blank" rel="noopener"
-              class="footer-link address-link">344/17 Jampettah St, Colombo 01300</a>
-          </li>
-          <li class="footer-contact-divider"></li>
-          <li><a href="tel:+94117991105" class="footer-link"
-              onclick="console.log('Phone link clicked'); gtag('event', 'click_to_call', {'event_category': 'engagement'});">0117
-              99 11 05</a></li>
-          <li><a href="mailto:info@neptunelogistics.lk" class="footer-link">info@neptunelogistics.lk</a></li>
-        </ul>
-      </div>
+
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; <span id="year">2026</span> Neptune Logistics (Pvt) Ltd. All rights reserved.
-      </div>
-      <div class="footer-bottom-links">
-        <a href="/privacy-policy.html" class="footer-bottom-link">Privacy Policy</a>
-        <a href="/terms-of-use.html" class="footer-bottom-link">Terms of Use</a>
-      </div>
+
+    <div class="footer-cta-row">
+      <div class="footer-cta-text">Ready to ship with Neptune?</div>
+      <a href="contact.html" class="uthao-button primary">
+        <span class="button-text _01">Get a Quote</span>
+        <span class="button-text _02" aria-hidden="true">Get a Quote</span>
+      </a>
     </div>
-    <div class="footer-disclaimer">
-      This website serves as an independent historical and archival presentation of Capitol AEI, Overseas Courier Service (OCS), and Bridges Worldwide partnerships, and is not operated by, endorsed by, or officially affiliated with DHL Global Forwarding.
+
+    <div class="footer-bottom-bar">
+      <p class="footer-copy-text">
+        &copy; <span id="year">2026</span> Neptune Logistics (Pvt) Ltd. All rights reserved. Registered in Sri Lanka.
+      </p>
+      <div class="footer-legal-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span>&bull;</span>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <span>&bull;</span>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>

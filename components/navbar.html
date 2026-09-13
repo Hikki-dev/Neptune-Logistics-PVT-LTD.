@@ -1,84 +1,156 @@
-<header class="navbar at-top" role="banner" id="site-navbar">
-  <div class="container">
-    <nav class="nav-inner" aria-label="Main navigation">
-      <a href="/index.html" class="nav-logo" aria-label="Neptune Logistics home" data-navroot>
-        <img src="/assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="nav-logo-img">
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="/index.html" class="nav-link" data-navpage="home">Home</a></li>
-        <li><a href="/about.html" class="nav-link" data-navpage="about">About</a></li>
-        <li class="has-dropdown">
-          <a href="/services/sea-freight.html" class="nav-link" data-navpage="services" aria-haspopup="true" aria-expanded="false">
-            Services
-            <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+<header class="uthao-navbar" role="banner" id="site-navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="nav-brand" aria-label="Neptune Logistics Home">
+      <img src="assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="nav-logo" width="167" height="54" />
+    </a>
+
+    <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+      <a href="index.html" class="nav-link" data-navpage="index">Home</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false">
+          Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="ocean-cargo.html" class="nav-dropdown-item" data-navpage="ocean-cargo">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20" /><path d="M4 20l1.5-6h13L20 20" /><path d="M7 14V6h10v8" /><path d="M10 6V3h4v3" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Ocean Cargo Forwarding</div>
+              <div class="dropdown-item-desc">FCL &amp; LCL container services worldwide</div>
+            </div>
           </a>
-          <ul class="nav-dropdown" role="menu">
-            <li role="none"><a href="/services/sea-freight.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Sea Freight</strong>
-                <small>FCL, LCL &amp; Buyer Consolidation</small>
-              </span>
-            </a></li>
-            <li role="none"><a href="/services/air-freight.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Air Freight</strong>
-                <small>Charter, Perishables &amp; AOG</small>
-              </span>
-            </a></li>
-            <li role="none"><a href="/services/customs-clearance.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Customs Clearance</strong>
-                <small>Licensed CHA &amp; Full Compliance</small>
-              </span>
-            </a></li>
-            <li role="none"><a href="/services/warehousing.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Warehousing</strong>
-                <small>Secure Storage &amp; Inventory Mgmt</small>
-              </span>
-            </a></li>
-            <li role="none"><a href="/services/port-handling.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Port Handling</strong>
-                <small>Gate to Door Port Operations</small>
-              </span>
-            </a></li>
-            <li role="none"><a href="/services/roadways.html" class="nav-dropdown-item" role="menuitem">
-              <span>
-                <strong>Inland Transport</strong>
-                <small>Domestic Cargo Across Sri Lanka</small>
-              </span>
-            </a></li>
-          </ul>
-        </li>
-        <li><a href="/portfolio.html" class="nav-link" data-navpage="portfolio">Projects</a></li>
-        <li><a href="/contact.html" class="nav-link" data-navpage="contact">Contact</a></li>
-        <li><a href="/contact.html" class="nav-link nav-cta" data-navpage="contact">Get a Quote</a></li>
-      </ul>
-      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile-menu">
-        <span></span><span></span><span></span>
-      </button>
+          <a href="air-cargo.html" class="nav-dropdown-item" data-navpage="air-cargo">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.7.7 9 5.4-4 4-2.3.6.4.4 3.5 3.5.4.4.6-2.3 4-4 5.4 9 .7-.7c.4-.3.6-.8.5-1.3z" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Air Cargo Forwarding</div>
+              <div class="dropdown-item-desc">Priority flights &amp; cold-chain charters</div>
+            </div>
+          </a>
+          <a href="container-cargo.html" class="nav-dropdown-item" data-navpage="container-cargo">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z" /><path d="M3 8v8l9 5 9-5V8" /><path d="M12 13v8" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Container Cargo</div>
+              <div class="dropdown-item-desc">Equipment specs &amp; intermodal drayage</div>
+            </div>
+          </a>
+          <a href="rail-transport.html" class="nav-dropdown-item" data-navpage="rail-transport">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="12" rx="2" /><path d="M4 11h16" /><circle cx="8" cy="17" r="1" /><circle cx="16" cy="17" r="1" /><path d="M9 19l-2 2M15 19l2 2" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Rail Transport</div>
+              <div class="dropdown-item-desc">Heavy haul &amp; inland block trains</div>
+            </div>
+          </a>
+          <a href="last-mile-delivery.html" class="nav-dropdown-item" data-navpage="last-mile-delivery">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1" /><path d="M15 9h4l3 4v4h-7z" /><circle cx="6" cy="19" r="1.6" /><circle cx="17.5" cy="19" r="1.6" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Last Mile Delivery</div>
+              <div class="dropdown-item-desc">Islandwide dispatch &amp; doorstep fulfillment</div>
+            </div>
+          </a>
+          <a href="services/customs-clearance.html" class="nav-dropdown-item" data-navpage="customs-clearance">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="m9 15 2 2 4-4" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Customs Clearance (CHA)</div>
+              <div class="dropdown-item-desc">Licensed in-house same-day clearance</div>
+            </div>
+          </a>
+          <a href="services/warehousing.html" class="nav-dropdown-item" data-navpage="warehousing">
+            <span class="dropdown-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+            </span>
+            <div>
+              <div class="dropdown-item-title">Warehousing &amp; Distribution</div>
+              <div class="dropdown-item-desc">Bonded storage &amp; inland distribution</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <a href="about.html" class="nav-link" data-navpage="about">About</a>
+      <a href="careers.html" class="nav-link" data-navpage="careers">Careers</a>
+      <a href="faq.html" class="nav-link" data-navpage="faq">FAQ</a>
+      <a href="contact.html" class="nav-link" data-navpage="contact">Contact</a>
     </nav>
-  </div>
-  <div class="nav-scroll-progress" aria-hidden="true"></div>
-</header>
-<div class="nav-mobile" id="nav-mobile-menu" role="dialog" aria-label="Mobile navigation">
-  <a href="/index.html" class="nav-link" data-navpage="home">Home</a>
-  <a href="/about.html" class="nav-link" data-navpage="about">About</a>
-  <div class="nav-mobile-services">
-    <button class="nav-mobile-services-toggle nav-link" aria-expanded="false">
-      Services
-      <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-    </button>
-    <div class="nav-mobile-services-list">
-      <a href="/services/sea-freight.html" class="nav-link nav-link-sub" data-navpage="services">Sea Freight</a>
-      <a href="/services/air-freight.html" class="nav-link nav-link-sub" data-navpage="services">Air Freight</a>
-      <a href="/services/customs-clearance.html" class="nav-link nav-link-sub" data-navpage="services">Customs Clearance</a>
-      <a href="/services/warehousing.html" class="nav-link nav-link-sub" data-navpage="services">Warehousing</a>
-      <a href="/services/port-handling.html" class="nav-link nav-link-sub" data-navpage="services">Port Handling</a>
-      <a href="/services/roadways.html" class="nav-link nav-link-sub" data-navpage="services">Inland Transport</a>
+
+    <div class="nav-actions">
+      <a href="contact.html" class="uthao-button primary nav-cta-btn" aria-label="Request freight quote">
+        <span class="button-text _01">Get a Quote</span>
+        <span class="button-text _02" aria-hidden="true">Get a Quote</span>
+      </a>
+
+      <button class="nav-hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </div>
-  <a href="/portfolio.html" class="nav-link" data-navpage="portfolio">Projects</a>
-  <a href="/contact.html" class="nav-link" data-navpage="contact">Contact</a>
+</header>
+
+<div class="mobile-menu-backdrop" aria-hidden="true"></div>
+<div class="mobile-menu-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <div class="mobile-menu-header">
+    <img loading="lazy" width="800" height="258" src="assets/logo-transparent.webp" alt="Neptune Logistics" class="mobile-logo" />
+    <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mobile-menu-links">
+    <a href="index.html" class="mobile-nav-link" data-navpage="index">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" /></svg>
+      Home
+    </a>
+    <a href="ocean-cargo.html" class="mobile-nav-link" data-navpage="ocean-cargo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20" /><path d="M4 20l1.5-6h13L20 20" /><path d="M7 14V6h10v8" /><path d="M10 6V3h4v3" /></svg>
+      Ocean Cargo Forwarding
+    </a>
+    <a href="air-cargo.html" class="mobile-nav-link" data-navpage="air-cargo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5l-.7.7 9 5.4-4 4-2.3.6.4.4 3.5 3.5.4.4.6-2.3 4-4 5.4 9 .7-.7c.4-.3.6-.8.5-1.3z" /></svg>
+      Air Cargo Forwarding
+    </a>
+    <a href="container-cargo.html" class="mobile-nav-link" data-navpage="container-cargo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z" /><path d="M3 8v8l9 5 9-5V8" /><path d="M12 13v8" /></svg>
+      Container Cargo
+    </a>
+    <a href="rail-transport.html" class="mobile-nav-link" data-navpage="rail-transport">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="12" rx="2" /><path d="M4 11h16" /><circle cx="8" cy="17" r="1" /><circle cx="16" cy="17" r="1" /><path d="M9 19l-2 2M15 19l2 2" /></svg>
+      Rail Transport
+    </a>
+    <a href="last-mile-delivery.html" class="mobile-nav-link" data-navpage="last-mile-delivery">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1" /><path d="M15 9h4l3 4v4h-7z" /><circle cx="6" cy="19" r="1.6" /><circle cx="17.5" cy="19" r="1.6" /></svg>
+      Last Mile Delivery
+    </a>
+    <a href="services/customs-clearance.html" class="mobile-nav-link" data-navpage="customs-clearance">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="m9 15 2 2 4-4" /></svg>
+      Customs Clearance (CHA)
+    </a>
+    <div class="mobile-menu-divider"></div>
+    <a href="about.html" class="mobile-nav-link" data-navpage="about">About Neptune</a>
+    <a href="index.html#industries" class="mobile-nav-link">Industries We Serve</a>
+    <a href="careers.html" class="mobile-nav-link" data-navpage="careers">Careers &amp; Vacancies</a>
+    <a href="faq.html" class="mobile-nav-link" data-navpage="faq">FAQ</a>
+    <a href="contact.html" class="mobile-nav-link" data-navpage="contact">Contact Colombo Office</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <a href="tel:+94777441990" class="mobile-call-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+      Call: +94 77 744 1990
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=94777441990" target="_blank" rel="noopener" class="mobile-whatsapp-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.012 2C6.48 2 2 6.48 2 12.01c0 1.77.46 3.48 1.34 5L2 22l5.14-1.35c1.47.8 3.12 1.22 4.87 1.22 5.53 0 10.01-4.48 10.01-10.01C22.02 6.48 17.54 2 12.012 2zm6.2 13.92c-.27.77-1.56 1.48-2.15 1.56-.51.07-1.17.1-3.37-.82-2.8-1.17-4.58-4.01-4.72-4.2-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.54-.34.72-.34h.52c.16 0 .37-.06.57.41.2.49.7 1.72.76 1.85.07.13.1.29.02.46-.08.17-.18.28-.35.48-.17.2-.36.43-.52.59-.18.17-.37.37-.16.73.21.36.94 1.55 2.01 2.5 1.38 1.22 2.54 1.6 2.9 1.76.36.15.57.12.78-.12.21-.24.91-1.06 1.15-1.42.24-.36.48-.3.8-.18.32.12 2.03 1.00 2.38 1.17.35.17.58.25.66.39.09.14.09.82-.18 1.59z" /></svg>
+      WhatsApp Inquiry
+    </a>
+  </div>
 </div>

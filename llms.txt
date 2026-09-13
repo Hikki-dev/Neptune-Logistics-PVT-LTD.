@@ -5,7 +5,6 @@
 ## Main Navigation
 - [Home](https://neptunelogistics.lk/) - Homepage showing overview of core services, family heritage, and statistics.
 - [About Us](https://neptunelogistics.lk/about.html) - History, mission, and family heritage of Neptune Logistics.
-- [Portfolio](https://neptunelogistics.lk/portfolio.html) - Case studies and details of successfully delivered complex logistics projects.
 - [Contact Us](https://neptunelogistics.lk/contact.html) - Head office address, telephone, email, and quote request form.
 
 ## Services
