@@ -16,6 +16,13 @@
     return;
   }
 
+  // Only fire real analytics once the visitor has accepted the cookie banner
+  // (js/uthao-interactions.js initCookieConsent) — 'declined' or not yet
+  // decided both skip loading GA.
+  if (localStorage.getItem('neptune-cookie-consent') !== 'accepted') {
+    return;
+  }
+
   var gaScript = document.createElement('script');
   gaScript.async = true;
   gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
