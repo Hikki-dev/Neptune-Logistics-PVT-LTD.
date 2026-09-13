@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initOfficeLocatorToggle();
   initMobileCollapsibleLists();
+  initMobileCardCarousels();
   initCookieConsent();
 });
 
@@ -1562,7 +1563,51 @@ function initMobileCollapsibleLists() {
 }
 
 /* ==========================================================================
-   8d. MOBILE NAV ACCORDION (Services / Company groups collapse by default)
+   8d. MOBILE CARD CAROUSELS (bento overview, hubs, industries, benefit pillars)
+   Mobile only (CSS-gated, see .mobile-card-carousel): turns a stacked card
+   grid into a one-card swipe carousel with arrow controls, on every page that
+   uses these shared sections. Desktop grid layout is untouched.
+   ========================================================================== */
+const MOBILE_CARD_CAROUSEL_SELECTORS = [
+  '.overview-bento-grid',
+  '.hubs-grid',
+  '.industries-grid',
+  '.benefit-item-wrap',
+];
+
+function initMobileCardCarousels() {
+  MOBILE_CARD_CAROUSEL_SELECTORS.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((container) => {
+      container.classList.add('mobile-card-carousel');
+
+      const controls = document.createElement('div');
+      controls.className = 'mobile-carousel-controls';
+      controls.innerHTML = `
+        <button type="button" class="carousel-arrow-btn" aria-label="Previous">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+        </button>
+        <button type="button" class="carousel-arrow-btn" aria-label="Next">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+        </button>
+      `;
+      container.insertAdjacentElement('afterend', controls);
+
+      const [prevBtn, nextBtn] = controls.querySelectorAll('button');
+      const scrollByCard = (direction) => {
+        const card = container.children[0];
+        if (!card) return;
+        const gap = parseFloat(getComputedStyle(container).columnGap) || 16;
+        const amount = card.getBoundingClientRect().width + gap;
+        container.scrollBy({ left: amount * direction, behavior: 'smooth' });
+      };
+      prevBtn.addEventListener('click', () => scrollByCard(-1));
+      nextBtn.addEventListener('click', () => scrollByCard(1));
+    });
+  });
+}
+
+/* ==========================================================================
+   8d2. MOBILE NAV ACCORDION (Services / Company groups collapse by default)
    ========================================================================== */
 function initMobileNavAccordion() {
   document.querySelectorAll('.mobile-nav-group-toggle').forEach((btn) => {
