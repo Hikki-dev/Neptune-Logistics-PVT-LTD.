@@ -3868,6 +3868,55 @@ body.has-cookie-banner .whatsapp-float-btn {
   padding: 100px 0 120px;
 }
 
+/* ==========================================================================
+   Individual job description page (career-detail.html)
+   ========================================================================== */
+.career-detail-hero {
+  padding: calc(var(--nav-h) + 60px) 0 70px;
+  background: var(--f6f5f8);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.job-detail-dept-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--blue-light);
+  color: var(--primary-blue);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+}
+
+.job-detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.job-detail-desc {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--slate);
+  max-width: 680px;
+  margin: 22px 0 32px;
+}
+
+#job-detail-notfound .section-h2 {
+  margin-bottom: 12px;
+}
+
+#job-detail-notfound .section-lead-p {
+  margin-bottom: 24px;
+}
+
 .vacancy-wrapper {
   display: flex;
   flex-direction: column;
@@ -3992,6 +4041,15 @@ body.has-cookie-banner .whatsapp-float-btn {
   color: var(--dark);
 }
 
+.vacancy-title a {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.vacancy-title a:hover {
+  color: var(--primary-blue);
+}
+
 .vacancy-text {
   font-size: 14.5px;
   color: var(--slate);
@@ -4023,6 +4081,27 @@ body.has-cookie-banner .whatsapp-float-btn {
   width: 14px;
   height: 14px;
   color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+  .vacancy-filter-chips,
+  .vacancy-tag-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .vacancy-filter-chips::-webkit-scrollbar,
+  .vacancy-tag-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-chip,
+  .vacancy-tag {
+    flex-shrink: 0;
+  }
 }
 
 /* Application Modal */
@@ -4522,6 +4601,7 @@ textarea.hero-text-input {
   }
 
   .ocean-hero-actions {
+    width: 100%;
     flex-wrap: nowrap;
     justify-content: center;
     gap: 10px;

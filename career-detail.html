@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="geo.region" content="LK-11" />
+  <meta name="geo.placename" content="Colombo" />
+  <meta name="geo.position" content="6.9458;79.8587" />
+  <meta name="ICBM" content="6.9458, 79.8587" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Job Description | Careers | Neptune Logistics Colombo</title>
+  <meta name="description" content="Full job description for an open position at Neptune Logistics, a licensed Customs House Agent and freight forwarder in Colombo, Sri Lanka." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="author" content="Neptune Logistics (Pvt) Ltd" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="shortcut icon" href="assets/favicon-n.png" type="image/png" />
+  <link rel="icon" type="image/png" href="assets/favicon-n.png" />
+  <link rel="apple-touch-icon" href="assets/favicon-apple-touch.png" />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Master Uthao-Styled Design System Stylesheet -->
+  <link rel="stylesheet" href="css/uthao-style.css" />
+
+  <!-- Preload Assets -->
+  <link rel="preload" as="image" href="assets/logo-transparent.webp" />
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- ══════════════════════════════════════════════════════════════
+         1. GLOBAL HEADER / NAVBAR
+         ══════════════════════════════════════════════════════════════ -->
+    <div id="navbar-placeholder"></div>
+    <script src="js/navbar-loader.js"></script>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         2. JOB DESCRIPTION HEADER
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="career-detail-hero">
+      <div class="container">
+        <nav class="breadcrumb service-breadcrumbs" aria-label="Breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="careers.html">Careers</a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" id="job-detail-crumb">Job Description</span>
+        </nav>
+
+        <div id="job-detail-notfound" hidden>
+          <h1 class="section-h2">Position not found</h1>
+          <p class="section-lead-p">
+            This listing may have closed or the link is out of date. See all current openings below.
+          </p>
+          <a href="careers.html" class="uthao-button primary">
+            <span class="button-text _01">Back to Careers</span>
+            <span class="button-text _02" aria-hidden="true">Back to Careers</span>
+          </a>
+        </div>
+
+        <div id="job-detail-content">
+          <span class="job-detail-dept-pill" id="job-detail-dept">Department</span>
+          <h1 class="job-detail-title" id="job-detail-title">Loading position&hellip;</h1>
+          <div class="vacancy-tag-wrap" id="job-detail-tags"></div>
+          <p class="job-detail-desc" id="job-detail-desc"></p>
+          <div class="hero-button-wrap">
+            <button type="button" class="uthao-button primary btn-apply-job" id="job-detail-apply-btn" data-job="">
+              <span class="button-text _01">Apply Now</span>
+              <span class="button-text _02" aria-hidden="true">Apply Now</span>
+            </button>
+            <a href="careers.html" class="uthao-button secondary">
+              <span class="button-text _01">All Openings</span>
+              <span class="button-text _02" aria-hidden="true">All Openings</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         3. APPLICATION MODAL (shared with careers.html)
+         ══════════════════════════════════════════════════════════════ -->
+    <div class="career-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="apply-modal-title">
+      <div class="career-modal-content">
+        <div class="career-modal-header">
+          <h3 id="apply-modal-title">Apply for <span class="career-modal-job-title" style="color: var(--primary-blue);">Position</span></h3>
+          <button class="career-modal-close" aria-label="Close application modal" style="font-size: 24px; cursor: pointer; border: none; background: none;">&times;</button>
+        </div>
+
+        <form class="career-application-form career-modal-body">
+          <input type="hidden" class="career-modal-job-input" name="job_title" value="" />
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Full Name *</label>
+            <input type="text" name="applicant_name" class="hero-text-input" style="border: 1px solid rgba(15,23,42,0.15);" placeholder="Enter your full name" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Email Address *</label>
+              <input type="email" name="applicant_email" class="hero-text-input" style="border: 1px solid rgba(15,23,42,0.15);" placeholder="you@example.com" required />
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Phone Number *</label>
+              <input type="tel" name="applicant_phone" class="hero-text-input" data-intl-phone data-visible-class="hero-text-input" required />
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Years of Relevant Experience *</label>
+            <select name="experience_range" class="hero-select-input" style="border: 1px solid rgba(15,23,42,0.15);" required>
+              <option value="">Select experience range</option>
+              <option value="entry">Entry Level / Graduate</option>
+              <option value="1-3">1 - 3 Years</option>
+              <option value="3-5">3 - 5 Years</option>
+              <option value="5+">5+ Years (Senior / Specialist)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Brief Note / Cover Letter</label>
+            <textarea name="cover_note" class="hero-text-input" style="border: 1px solid rgba(15,23,42,0.15); min-height: 90px; border-radius: 12px; resize: vertical;" placeholder="Introduce yourself and share why you want to join Neptune Logistics..."></textarea>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">LinkedIn Profile <span style="font-weight: 500; text-transform: none; color: var(--slate-light);">(optional)</span></label>
+            <input type="url" name="linkedin_url" class="hero-text-input" style="border: 1px solid rgba(15,23,42,0.15);"
+              placeholder="https://linkedin.com/in/your-profile" />
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Upload CV / Resume (PDF) *</label>
+            <div class="cv-dropzone" id="cv-dropzone" tabindex="0" role="button" aria-label="Upload CV as PDF, drag and drop or click to browse">
+              <input type="file" name="resume_file" id="cv-file-input" accept="application/pdf" required style="display: none;" />
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="cv-dropzone-icon"><path d="M12 16V4M12 4l-4 4M12 4l4 4" /><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" /></svg>
+              <span class="cv-dropzone-text">Drag &amp; drop your CV here, or <strong>tap to browse</strong></span>
+              <span class="cv-dropzone-filename" id="cv-file-name"></span>
+            </div>
+            <span style="font-size: 12px; color: var(--slate-light);">PDF only, up to 5MB.</span>
+          </div>
+
+          <p style="font-size: 12px; color: var(--slate-light); display: flex; align-items: flex-start; gap: 6px; margin-top: 4px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></svg>
+            <span>Your information and CV are sent securely and used only to evaluate your application. We never share your data with third parties.</span>
+          </p>
+
+          <button type="submit" class="uthao-button primary full-width" style="margin-top: 10px;">
+            <span class="button-text _01">Submit Application</span>
+            <span class="button-text _02" aria-hidden="true">Submit Application</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         4. GLOBAL FOOTER
+         ══════════════════════════════════════════════════════════════ -->
+    <div id="footer-placeholder"></div>
+    <script src="js/footer-loader.js"></script>
+
+    <!-- Floating WhatsApp Action -->
+    <a href="https://api.whatsapp.com/send?phone=94777441990&text=Hello%20Neptune%20Logistics%2C%20I%20would%20like%20to%20inquire%20about%20career%20opportunities."
+      class="whatsapp-float-btn" target="_blank" rel="noopener" aria-label="Chat with Neptune Logistics on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path
+          d="M12.012 2C6.48 2 2 6.48 2 12.01c0 1.77.46 3.48 1.34 5L2 22l5.14-1.35c1.47.8 3.12 1.22 4.87 1.22 5.53 0 10.01-4.48 10.01-10.01C22.02 6.48 17.54 2 12.012 2zm6.2 13.92c-.27.77-1.56 1.48-2.15 1.56-.51.07-1.17.1-3.37-.82-2.8-1.17-4.58-4.01-4.72-4.2-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.28.25-.27.54-.34.72-.34h.52c.16 0 .37-.06.57.41.2.49.7 1.72.76 1.85.07.13.1.29.02.46-.08.17-.18.28-.35.48-.17.2-.36.43-.52.59-.18.17-.37.37-.16.73.21.36.94 1.55 2.01 2.5 1.38 1.22 2.54 1.6 2.9 1.76.36.15.57.12.78-.12.21-.24.91-1.06 1.15-1.42.24-.36.48-.3.8-.18.32.12 2.03 1.00 2.38 1.17.35.17.58.25.66.39.09.14.09.82-.18 1.59z" />
+      </svg>
+      <span class="whatsapp-tooltip-text">Chat with Careers Desk</span>
+    </a>
+
+  </div>
+
+  <!-- JavaScript Interactions File -->
+  <script src="js/uthao-interactions.js"></script>
+</body>
+
+</html>

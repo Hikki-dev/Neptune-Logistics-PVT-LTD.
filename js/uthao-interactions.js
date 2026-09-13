@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initServicesCarousel();
   initJobVacancyFilter();
   initCareerApplyModal();
+  initCareerDetailPage();
   initContactForm();
   initOfficeLocatorToggle();
   initMobileCollapsibleLists();
@@ -1484,6 +1485,63 @@ function initCareerApplyModal() {
   }
 }
 
+/* ==========================================================================
+   11b. INDIVIDUAL JOB DESCRIPTION PAGE (career-detail.html)
+   Fetches careers.html (the single source of truth for job content) and
+   pulls out the one .vacancy-item matching ?job=<slug>, rather than
+   duplicating every job's title/description/tags a second time here.
+   ========================================================================== */
+function initCareerDetailPage() {
+  const titleEl = document.getElementById('job-detail-title');
+  if (!titleEl) return;
+
+  const contentEl = document.getElementById('job-detail-content');
+  const notFoundEl = document.getElementById('job-detail-notfound');
+  const crumbEl = document.getElementById('job-detail-crumb');
+  const slug = new URLSearchParams(window.location.search).get('job');
+
+  function showNotFound() {
+    if (contentEl) contentEl.hidden = true;
+    if (notFoundEl) notFoundEl.hidden = false;
+  }
+
+  if (!slug) {
+    showNotFound();
+    return;
+  }
+
+  fetch('careers.html')
+    .then((res) => res.text())
+    .then((html) => {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const item = doc.querySelector(`.vacancy-item[data-slug="${slug}"]`);
+      if (!item) {
+        showNotFound();
+        return;
+      }
+
+      const title = item.querySelector('.vacancy-title')?.textContent.trim() || 'Open Position';
+      const desc = item.querySelector('.vacancy-text')?.textContent.trim() || '';
+      const tags = Array.from(item.querySelectorAll('.vacancy-tag'));
+      const department = tags.length ? tags[tags.length - 1].textContent.trim() : '';
+
+      document.title = `${title} | Careers | Neptune Logistics`;
+      titleEl.textContent = title;
+      if (crumbEl) crumbEl.textContent = title;
+      document.getElementById('job-detail-desc').textContent = desc;
+      document.getElementById('job-detail-dept').textContent = department;
+
+      const tagWrap = document.getElementById('job-detail-tags');
+      if (tagWrap) {
+        tagWrap.innerHTML = '';
+        tags.forEach((tag) => tagWrap.appendChild(tag.cloneNode(true)));
+      }
+
+      const applyBtn = document.getElementById('job-detail-apply-btn');
+      if (applyBtn) applyBtn.setAttribute('data-job', title);
+    })
+    .catch(showNotFound);
+}
 
 /* ==========================================================================
    8b. CONTACT PAGE FORM (matches uthao reference field set)
@@ -1608,6 +1666,7 @@ const MOBILE_CARD_CAROUSEL_SELECTORS = [
   '.hubs-grid',
   '.industries-grid',
   '.benefit-item-wrap',
+  '.stats-counter-grid',
 ];
 
 function initMobileCardCarousels() {
