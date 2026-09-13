@@ -2647,6 +2647,14 @@ ul {
   z-index: 10;
 }
 
+/* A node's tooltip is nested inside it, so its own z-index only ranks within
+   its parent's stacking context — without this, a tooltip can render behind
+   a later, higher-DOM-order sibling node's dot. Raising the hovered node
+   itself above its siblings fixes that. */
+.map-node:hover {
+  z-index: 100;
+}
+
 .map-node-core {
   width: 14px;
   height: 14px;
@@ -3118,19 +3126,11 @@ ul {
   border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
-.footer-brand-row {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-bottom: 32px;
-}
-
 .footer-follow-row {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  gap: 14px;
+  margin-top: 4px;
 }
 
 .footer-follow-heading {
@@ -3140,9 +3140,9 @@ ul {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr;
   gap: 40px;
-  padding: 40px 0 50px;
+  padding-bottom: 50px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
@@ -4449,7 +4449,12 @@ textarea.hero-text-input {
   }
 
   .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
+  }
+
+  .footer-top-grid .brand-col {
+    grid-column: 1 / -1;
   }
 
   .why-choose-item {
@@ -4608,6 +4613,12 @@ textarea.hero-text-input {
   }
 
   .footer-top-grid {
+    display: block;
+    border-bottom: none;
+    padding-bottom: 20px;
+  }
+
+  .footer-top-grid .footer-col:not(.brand-col) {
     display: none;
   }
 
