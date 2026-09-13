@@ -4523,14 +4523,14 @@ textarea.hero-text-input {
 
   .ocean-hero-actions {
     flex-wrap: nowrap;
+    justify-content: center;
     gap: 10px;
   }
 
   .ocean-hero-actions .uthao-button {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 0 8px;
-    font-size: 11px;
+    flex: 0 1 auto;
+    padding: 0 16px;
+    font-size: 13px;
     white-space: nowrap;
   }
 
