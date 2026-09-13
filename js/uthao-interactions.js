@@ -630,9 +630,11 @@ function initNavbar() {
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   if (backdrop) backdrop.addEventListener('click', closeDrawer);
 
-  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+  document.querySelectorAll('.mobile-nav-link, .mobile-nav-sublink').forEach((link) => {
     link.addEventListener('click', closeDrawer);
   });
+
+  initMobileNavAccordion();
 }
 
 /* ==========================================================================
@@ -1554,6 +1556,19 @@ function initMobileCollapsibleLists() {
         updateLabel();
       });
       container.insertAdjacentElement('afterend', btn);
+    });
+  });
+}
+
+/* ==========================================================================
+   8d. MOBILE NAV ACCORDION (Services / Company groups collapse by default)
+   ========================================================================== */
+function initMobileNavAccordion() {
+  document.querySelectorAll('.mobile-nav-group-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.mobile-nav-group');
+      const isOpen = group.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 }
