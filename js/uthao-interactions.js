@@ -530,12 +530,45 @@ function initCountryAutocompleteFields() {
 /* ==========================================================================
    1. NAVBAR & MOBILE DRAWER
    ========================================================================== */
+/* The mobile drawer opens from the left and pushes the rest of the page to
+   the right (rather than overlaying on top of it), so the header/logo stays
+   visible beside it. That means everything else on the page needs to live
+   inside one "shell" element that can be transformed, while the drawer and
+   backdrop stay direct children of <body> — transforming an ancestor turns
+   it into the containing block for any position:fixed element still nested
+   inside it, which would otherwise drag the drawer/backdrop (and floating
+   widgets like the WhatsApp button) along with the push. Most pages already
+   wrap everything in a `.page-wrapper` div we can reuse as that shell; pages
+   without one get a synthetic wrapper created here instead. Zero per-page
+   HTML edits either way. */
+function setupPushDrawerShell(drawer, backdrop) {
+  if (!drawer || !backdrop || document.getElementById('page-push-shell')) return;
+
+  const keepOutOfShell = [drawer, backdrop, ...document.querySelectorAll('.whatsapp-float-btn, .cookie-consent-banner')];
+  keepOutOfShell.forEach((el) => document.body.appendChild(el));
+
+  let shell = document.querySelector('.page-wrapper');
+  if (!shell) {
+    shell = document.createElement('div');
+    document.body.insertBefore(shell, document.body.firstChild);
+  }
+
+  Array.from(document.body.children).forEach((el) => {
+    if (el === shell || keepOutOfShell.includes(el)) return;
+    shell.appendChild(el);
+  });
+
+  shell.id = 'page-push-shell';
+}
+
 function initNavbar() {
   const header = document.querySelector('.uthao-navbar');
   const hamburger = document.querySelector('.nav-hamburger-btn');
   const drawer = document.querySelector('.mobile-menu-drawer');
   const backdrop = document.querySelector('.mobile-menu-backdrop');
   const closeBtn = document.querySelector('.mobile-menu-close');
+
+  setupPushDrawerShell(drawer, backdrop);
 
   // Highlight the current page in both the desktop and mobile nav
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
@@ -603,6 +636,7 @@ function initNavbar() {
     if (drawer && backdrop && hamburger) {
       drawer.classList.add('active');
       backdrop.classList.add('active');
+      document.body.classList.add('mobile-menu-open');
       hamburger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
@@ -612,6 +646,7 @@ function initNavbar() {
     if (drawer && backdrop && hamburger) {
       drawer.classList.remove('active');
       backdrop.classList.remove('active');
+      document.body.classList.remove('mobile-menu-open');
       hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }

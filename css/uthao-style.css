@@ -547,16 +547,19 @@ ul {
   background: var(--dark);
 }
 
-/* Mobile Drawer */
+/* Mobile Drawer — opens from the left and pushes the page (see
+   #page-push-shell) to the right, rather than overlaying on top of it. */
+:root {
+  --mobile-drawer-w: min(80vw, 320px);
+}
+
 .mobile-menu-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(11, 18, 34, 0.6);
-  backdrop-filter: blur(8px);
+  background: transparent;
   z-index: 10001;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 .mobile-menu-backdrop.active {
@@ -567,14 +570,13 @@ ul {
 .mobile-menu-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
-  width: 85%;
-  max-width: 360px;
+  width: var(--mobile-drawer-w);
   background: var(--white);
   z-index: 10002;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-  transform: translateX(100%);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
+  transform: translateX(-100%);
   transition: transform 0.35s var(--ease-spring);
   display: flex;
   flex-direction: column;
@@ -584,6 +586,18 @@ ul {
 
 .mobile-menu-drawer.active {
   transform: translateX(0);
+}
+
+/* Wraps the rest of the page (see initNavbar's setupPushDrawerShell) so it
+   can be shifted right without dragging the fixed drawer/backdrop along —
+   an ancestor's transform would otherwise become the containing block for
+   any position:fixed element still nested inside it. */
+#page-push-shell {
+  transition: transform 0.35s var(--ease-spring);
+}
+
+body.mobile-menu-open #page-push-shell {
+  transform: translateX(var(--mobile-drawer-w));
 }
 
 .mobile-menu-header {
