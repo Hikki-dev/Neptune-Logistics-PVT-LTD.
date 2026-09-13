@@ -554,10 +554,19 @@ function initNavbar() {
 
     // Hide the nav on scroll-down, reveal it on scroll-up — so it never sits
     // on screen next to the footer's own logo when the user reaches the bottom.
+    // A small upward-scroll requirement (rather than any single upward tick)
+    // keeps momentum-scroll "settle" bounces from flashing the nav back in.
+    // The footer itself is also an explicit hard override below, since a
+    // deliberate (not just a tiny bounce) scroll-up while the footer is
+    // already in view must still never show both logos at once.
+    const footerEl = document.querySelector('.uthao-footer');
     let lastScrollY = window.scrollY;
+    let upwardAccum = 0;
+    const REVEAL_THRESHOLD = 60;
 
     const handleScroll = () => {
       const currentY = window.scrollY;
+      const delta = currentY - lastScrollY;
 
       if (currentY > getThreshold()) {
         header.classList.add('is-scrolled');
@@ -565,12 +574,19 @@ function initNavbar() {
         header.classList.remove('is-scrolled');
       }
 
+      const footerInView = footerEl && footerEl.getBoundingClientRect().top < window.innerHeight;
       const drawerOpen = drawer && drawer.classList.contains('active');
-      if (!drawerOpen) {
-        if (currentY > lastScrollY && currentY > 160) {
-          header.classList.add('nav-hidden');
-        } else {
-          header.classList.remove('nav-hidden');
+      if (footerInView) {
+        header.classList.add('nav-hidden');
+      } else if (!drawerOpen) {
+        if (delta > 0) {
+          upwardAccum = 0;
+          if (currentY > 160) header.classList.add('nav-hidden');
+        } else if (delta < 0) {
+          upwardAccum += -delta;
+          if (currentY <= 160 || upwardAccum > REVEAL_THRESHOLD) {
+            header.classList.remove('nav-hidden');
+          }
         }
       }
       lastScrollY = currentY;
