@@ -2801,6 +2801,40 @@ ul {
   transition: all 0.25s ease;
 }
 
+/* Mobile-only: keep long FAQ/detail lists short by default, with a manual
+   "Show more" reveal, so mobile visitors aren't stuck scrolling past a dozen
+   items. Desktop is untouched — this rule only exists inside the breakpoint. */
+.mobile-collapsible-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-collapsible-extra {
+    display: none;
+  }
+
+  .mobile-collapsible-list.is-expanded .mobile-collapsible-extra {
+    display: block;
+  }
+
+  .mobile-collapsible-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+    padding: 13px 20px;
+    background: var(--f6f5f8);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+}
+
 .faq-item.open {
   background: var(--white);
   border-color: rgba(10, 86, 255, 0.35);
