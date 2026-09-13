@@ -3077,11 +3077,31 @@ ul {
   border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
+.footer-brand-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 32px;
+}
+
+.footer-follow-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.footer-follow-heading {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
-  padding-bottom: 50px;
+  padding: 40px 0 50px;
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
@@ -4289,12 +4309,7 @@ textarea.hero-text-input {
   }
 
   .footer-top-grid {
-    grid-template-columns: 1fr 1fr;
     gap: 32px;
-  }
-
-  .footer-top-grid .brand-col {
-    grid-column: 1 / -1;
   }
 
   .why-choose-item {
