@@ -4252,6 +4252,19 @@ textarea.hero-text-input {
     font-size: 2.3rem;
   }
 
+  .ocean-hero-actions {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .ocean-hero-actions .uthao-button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
   .air-hero-section,
   .container-hero-section,
   .rail-hero-section,
