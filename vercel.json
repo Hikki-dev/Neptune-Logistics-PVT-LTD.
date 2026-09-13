@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/services/sea-freight.html", "destination": "/ocean-cargo.html", "permanent": true },
+    { "source": "/services/sea-freight", "destination": "/ocean-cargo.html", "permanent": true },
+    { "source": "/services/air-freight.html", "destination": "/air-cargo.html", "permanent": true },
+    { "source": "/services/air-freight", "destination": "/air-cargo.html", "permanent": true },
+    { "source": "/career.html", "destination": "/careers.html", "permanent": true },
+    { "source": "/career", "destination": "/careers.html", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/", "permanent": true }
+  ]
+}
