@@ -718,22 +718,6 @@ function initQuoteWizard() {
    section background tint, specifications, and container photo.
    ========================================================================== */
 const CARRIER_DATA = {
-  maersk: {
-    key: 'maersk',
-    name: 'Maersk Line',
-    color: '#0082f3',
-    glow: 'rgba(0, 130, 243, 0.35)',
-    bg: '#f0f7ff',
-    hq: 'Copenhagen, Denmark',
-    image: 'assets/images/carrier-maersk.jpg',
-    features: 'Global vessel sharing agreement, direct Colombo-Europe calls',
-    tag: 'World Largest Carrier Network',
-    destCity: 'Rotterdam, Netherlands',
-    lane: 'LKCMB &rarr; NLRTM',
-    days: '18&ndash;22 Days',
-    hubLeg: 'Transshipment via Singapore',
-    arrivalLeg: 'Arrives Rotterdam, Netherlands'
-  },
   msc: {
     key: 'msc',
     name: 'Mediterranean Shipping Company (MSC)',
@@ -830,22 +814,6 @@ const CARRIER_DATA = {
     hubLeg: 'Direct mainline call, no transshipment',
     arrivalLeg: 'Arrives Shanghai, China'
   },
-  yangming: {
-    key: 'yangming',
-    name: 'Yang Ming Marine Transport',
-    color: '#f5c400',
-    glow: 'rgba(245, 196, 0, 0.35)',
-    bg: '#fffbea',
-    hq: 'Keelung, Taiwan',
-    image: 'assets/images/carrier-yang-ming.jpg',
-    features: 'Taiwan-South Asia express strings with reliable Colombo port rotation',
-    tag: 'Taiwan Intra-Asia Specialist',
-    destCity: 'Kaohsiung, Taiwan',
-    lane: 'LKCMB &rarr; TWKHH',
-    days: '10&ndash;13 Days',
-    hubLeg: 'Transshipment via Port Klang',
-    arrivalLeg: 'Arrives Kaohsiung, Taiwan'
-  },
   wanhai: {
     key: 'wanhai',
     name: 'Wan Hai Lines',
@@ -861,6 +829,22 @@ const CARRIER_DATA = {
     days: '7&ndash;9 Days',
     hubLeg: 'Transshipment via Port Klang',
     arrivalLeg: 'Arrives Hai Phong, Vietnam'
+  },
+  maersk: {
+    key: 'maersk',
+    name: 'Maersk Line',
+    color: '#0082f3',
+    glow: 'rgba(0, 130, 243, 0.35)',
+    bg: '#f0f7ff',
+    hq: 'Copenhagen, Denmark',
+    image: 'assets/images/carrier-maersk.jpg',
+    features: 'Global vessel sharing agreement, direct Colombo-Europe calls',
+    tag: 'World Largest Carrier Network',
+    destCity: 'Rotterdam, Netherlands',
+    lane: 'LKCMB &rarr; NLRTM',
+    days: '18&ndash;22 Days',
+    hubLeg: 'Transshipment via Singapore',
+    arrivalLeg: 'Arrives Rotterdam, Netherlands'
   }
 };
 
@@ -991,8 +975,8 @@ function initContainerShowcase() {
     }, { passive: true });
   }
 
-  // Initialize with default carrier (maersk)
-  applyCarrier('maersk');
+  // Initialize with default carrier (msc)
+  applyCarrier('msc');
 }
 
 /* ==========================================================================
