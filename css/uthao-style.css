@@ -860,6 +860,7 @@ body.mobile-menu-open #page-push-shell {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -870,6 +871,8 @@ body.mobile-menu-open #page-push-shell {
   font-weight: 800;
   color: var(--white);
   text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .cred-lbl,
@@ -881,6 +884,8 @@ body.mobile-menu-open #page-push-shell {
   letter-spacing: 0.04em;
   margin-top: 2px;
   text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .ocean-hero-left {
@@ -2846,6 +2851,14 @@ body.mobile-menu-open #page-push-shell {
   text-align: center;
 }
 
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .counter-val {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 3.2vw, 3rem);
@@ -2853,6 +2866,9 @@ body.mobile-menu-open #page-push-shell {
   color: var(--primary-blue);
   letter-spacing: -0.02em;
   line-height: 1;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .counter-label {
@@ -2862,6 +2878,9 @@ body.mobile-menu-open #page-push-shell {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 8px;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -4690,7 +4709,8 @@ textarea.hero-text-input {
      sitting left-aligned under the first column. Dividers between items are
      hidden but still present in the DOM, so :last-child (not :nth-child) is
      what correctly targets the final .cred-item regardless of their count. */
-  .cred-item:last-child {
+  .cred-item:last-child,
+  .cred-item:last-of-type {
     flex: 1 1 100%;
     align-items: center;
     text-align: center;
@@ -4700,6 +4720,8 @@ textarea.hero-text-input {
   .cred-number {
     font-size: 17px;
     text-align: center;
+    display: block;
+    width: 100%;
   }
 
   .cred-lbl,
@@ -4707,6 +4729,8 @@ textarea.hero-text-input {
     font-size: 9.5px;
     white-space: nowrap;
     text-align: center;
+    display: block;
+    width: 100%;
   }
 
   .cred-divider {
