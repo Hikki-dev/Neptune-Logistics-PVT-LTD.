@@ -775,21 +775,21 @@ function initQuoteWizard() {
    section background tint, specifications, and container photo.
    ========================================================================== */
 const CARRIER_DATA = {
-  msc: {
-    key: 'msc',
-    name: 'Mediterranean Shipping Company (MSC)',
-    color: '#003399',
-    glow: 'rgba(0, 51, 153, 0.35)',
-    bg: '#f0f3ff',
-    hq: 'Geneva, Switzerland',
-    image: 'assets/images/carrier-msc.jpg',
-    features: 'World\'s largest container fleet with weekly Colombo-Mediterranean strings',
-    tag: 'Largest Global Fleet Capacity',
-    destCity: 'Jeddah, Saudi Arabia',
-    lane: 'LKCMB &rarr; SAJED',
-    days: '8&ndash;11 Days',
-    hubLeg: 'Direct mainline call, no transshipment',
-    arrivalLeg: 'Arrives Jeddah, Saudi Arabia'
+  maersk: {
+    key: 'maersk',
+    name: 'Maersk Line',
+    color: '#0082f3',
+    glow: 'rgba(0, 130, 243, 0.35)',
+    bg: '#f0f7ff',
+    hq: 'Copenhagen, Denmark',
+    image: 'assets/images/carrier-maersk.jpg',
+    features: 'Global vessel sharing agreement, direct Colombo-Europe calls',
+    tag: 'World Largest Carrier Network',
+    destCity: 'Rotterdam, Netherlands',
+    lane: 'LKCMB &rarr; NLRTM',
+    days: '18&ndash;22 Days',
+    hubLeg: 'Transshipment via Singapore',
+    arrivalLeg: 'Arrives Rotterdam, Netherlands'
   },
   evergreen: {
     key: 'evergreen',
@@ -806,6 +806,22 @@ const CARRIER_DATA = {
     days: '4&ndash;5 Days',
     hubLeg: 'Direct mainline call, no transshipment',
     arrivalLeg: 'Arrives Singapore (SGSIN)'
+  },
+  msc: {
+    key: 'msc',
+    name: 'Mediterranean Shipping Company (MSC)',
+    color: '#003399',
+    glow: 'rgba(0, 51, 153, 0.35)',
+    bg: '#f0f3ff',
+    hq: 'Geneva, Switzerland',
+    image: 'assets/images/carrier-msc.jpg',
+    features: 'World\'s largest container fleet with weekly Colombo-Mediterranean strings',
+    tag: 'Largest Global Fleet Capacity',
+    destCity: 'Jeddah, Saudi Arabia',
+    lane: 'LKCMB &rarr; SAJED',
+    days: '8&ndash;11 Days',
+    hubLeg: 'Direct mainline call, no transshipment',
+    arrivalLeg: 'Arrives Jeddah, Saudi Arabia'
   },
   hapaglloyd: {
     key: 'hapaglloyd',
@@ -886,22 +902,6 @@ const CARRIER_DATA = {
     days: '7&ndash;9 Days',
     hubLeg: 'Transshipment via Port Klang',
     arrivalLeg: 'Arrives Hai Phong, Vietnam'
-  },
-  maersk: {
-    key: 'maersk',
-    name: 'Maersk Line',
-    color: '#0082f3',
-    glow: 'rgba(0, 130, 243, 0.35)',
-    bg: '#f0f7ff',
-    hq: 'Copenhagen, Denmark',
-    image: 'assets/images/carrier-maersk.jpg',
-    features: 'Global vessel sharing agreement, direct Colombo-Europe calls',
-    tag: 'World Largest Carrier Network',
-    destCity: 'Rotterdam, Netherlands',
-    lane: 'LKCMB &rarr; NLRTM',
-    days: '18&ndash;22 Days',
-    hubLeg: 'Transshipment via Singapore',
-    arrivalLeg: 'Arrives Rotterdam, Netherlands'
   }
 };
 
@@ -1032,8 +1032,8 @@ function initContainerShowcase() {
     }, { passive: true });
   }
 
-  // Initialize with default carrier (msc)
-  applyCarrier('msc');
+  // Initialize with default carrier (maersk)
+  applyCarrier('maersk');
 }
 
 /* ==========================================================================
