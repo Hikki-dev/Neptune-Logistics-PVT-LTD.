@@ -847,6 +847,7 @@ body.mobile-menu-open #page-push-shell {
 .hero-credentials-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
@@ -858,6 +859,8 @@ body.mobile-menu-open #page-push-shell {
 .cred-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .cred-val,
@@ -866,6 +869,7 @@ body.mobile-menu-open #page-push-shell {
   font-size: 20px;
   font-weight: 800;
   color: var(--white);
+  text-align: center;
 }
 
 .cred-lbl,
@@ -876,6 +880,7 @@ body.mobile-menu-open #page-push-shell {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-top: 2px;
+  text-align: center;
 }
 
 .ocean-hero-left {
@@ -4662,14 +4667,23 @@ textarea.hero-text-input {
   }
 
   .hero-credentials-row {
+    width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
     row-gap: 14px;
     column-gap: 16px;
+    padding: 14px 16px;
+    text-align: center;
   }
 
   .cred-item {
-    flex: 1 1 auto;
+    flex: 1 1 0;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
   }
 
   /* The 3rd item alone on its own row (2-up wrap) is centered instead of
@@ -4677,19 +4691,22 @@ textarea.hero-text-input {
      hidden but still present in the DOM, so :last-child (not :nth-child) is
      what correctly targets the final .cred-item regardless of their count. */
   .cred-item:last-child {
-    flex-basis: 100%;
+    flex: 1 1 100%;
     align-items: center;
+    text-align: center;
   }
 
   .cred-val,
   .cred-number {
     font-size: 17px;
+    text-align: center;
   }
 
   .cred-lbl,
   .cred-label {
     font-size: 9.5px;
     white-space: nowrap;
+    text-align: center;
   }
 
   .cred-divider {
