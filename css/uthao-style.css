@@ -1159,8 +1159,12 @@ body.mobile-menu-open #page-push-shell {
 
 .container-showcase-section[data-carrier="maersk"] { background: #f0f7ff; }
 .container-showcase-section[data-carrier="evergreen"] { background: #f0fbf4; }
+.container-showcase-section[data-carrier="msc"] { background: #f0f3ff; }
 .container-showcase-section[data-carrier="hapaglloyd"] { background: #fff8f0; }
 .container-showcase-section[data-carrier="one"] { background: #fdf0f7; }
+.container-showcase-section[data-carrier="cmacgm"] { background: #f0f3fa; }
+.container-showcase-section[data-carrier="cosco"] { background: #fdf1f2; }
+.container-showcase-section[data-carrier="wanhai"] { background: #fdf1f3; }
 
 .carrier-pills-wrap {
   display: flex;
