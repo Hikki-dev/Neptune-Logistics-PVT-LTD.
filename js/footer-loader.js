@@ -25,7 +25,7 @@
     setFooterYear();
   }
 
-  const token = 'v=1789818899665';
+  const token = 'v=1789819076637';
 
   fetch(root + 'components/footer.partial?' + token)
     .then(function (r) {
