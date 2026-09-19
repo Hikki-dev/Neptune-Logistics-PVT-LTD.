@@ -1650,22 +1650,26 @@ function initCareerApplyModal() {
           hr_remarks: ''
         };
 
-        // 1. Post to Google Apps Script Web App (auto-sorts to Google Drive folder & Google Sheet)
-        try {
-          const res = await fetch(GOOGLE_CAREERS_APP_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain;charset=utf-8',
-            },
-            body: JSON.stringify(payload),
-          });
-          const gasRes = await res.json();
-          console.log('[Neptune Careers] Google Drive & Sheet sync complete:', gasRes);
-        } catch (fetchErr) {
-          console.warn('[Neptune Careers] Direct fetch note:', fetchErr);
-        }
+        // 1. Show the success screen immediately — don't make the user wait for the upload
+        const formattedDate = formatPlainEnglishDate();
+        showSuccessView(payload, formattedDate);
 
-        // 2. Instant email backup delivery via Web3Forms
+        // Reset form fields straight away
+        form.reset();
+        if (dropzone) dropzone.classList.remove('has-file');
+        if (fileNameEl) fileNameEl.textContent = '';
+
+        // 2. Fire Google Apps Script upload in the background (non-blocking)
+        fetch(GOOGLE_CAREERS_APP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        })
+          .then(r => r.json())
+          .then(gasRes => console.log('[Neptune Careers] Drive & Sheet sync complete:', gasRes))
+          .catch(fetchErr => console.warn('[Neptune Careers] Background upload note:', fetchErr));
+
+        // 3. Email backup via Web3Forms — also non-blocking
         submitFormData({
           form_name: 'Careers Application Form',
           job_title: payload.job_title,
@@ -1677,15 +1681,6 @@ function initCareerApplyModal() {
           cover_note: payload.cover_note || 'N/A',
           cv_file_name: payload.file_name,
         }, `[Job Application] ${payload.job_title} - ${payload.applicant_name}`);
-
-        // 3. Display official in-modal confirmation receipt
-        const formattedDate = formatPlainEnglishDate();
-        showSuccessView(payload, formattedDate);
-
-        // Reset form fields
-        form.reset();
-        if (dropzone) dropzone.classList.remove('has-file');
-        if (fileNameEl) fileNameEl.textContent = '';
 
       } catch (err) {
         console.error('[Neptune Careers] Submission error:', err);
