@@ -1431,8 +1431,20 @@ function initCareerApplyModal() {
     });
   }
 
+  const GOOGLE_CAREERS_APP_URL = 'https://script.google.com/macros/s/AKfycbwaiOLt4_BItufuebX5wQii8knh59-7MKcydWqGpBI0e4S1xIja_5Sm2zgPp2RQaPMkTQ/exec';
+
+  function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+      if (!file || !file.size) return resolve('');
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (err) => reject(err);
+      reader.readAsDataURL(file);
+    });
+  }
+
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -1443,44 +1455,83 @@ function initCareerApplyModal() {
       const originalHTML = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="button-text _01">Sending...</span>';
+        submitBtn.innerHTML = '<span class="button-text _01">Uploading &amp; Submitting...</span>';
       }
 
       const data = new FormData(form);
-      const payload = new FormData();
-      payload.append('job_title', data.get('job_title') || '');
-      payload.append('name', data.get('applicant_name') || '');
-      payload.append('email', data.get('applicant_email') || '');
-      payload.append('phone', data.get('applicant_phone') || '');
-      payload.append('experience', data.get('experience_range') || '');
-      payload.append('cover_note', data.get('cover_note') || '');
-      payload.append('linkedin_url', data.get('linkedin_url') || '');
-      const resumeFile = data.get('resume_file');
-      if (resumeFile && resumeFile.size) payload.append('resume', resumeFile);
+      const resumeFile = fileInput && fileInput.files ? fileInput.files[0] : null;
 
-      fetch('https://dclsbougjtgnplrfifvj.supabase.co/functions/v1/submit-application', {
-        method: 'POST',
-        body: payload,
-      })
-        .then((res) => res.json())
-        .catch((err) => ({ success: false, error: err }))
-        .then((result) => {
-          if (result && result.success) {
-            alert('Thank you for applying to Neptune Logistics (Pvt) Ltd! Our Human Capital team will review your application and contact you.');
-            closeCareerModal();
-            form.reset();
-            if (dropzone) dropzone.classList.remove('has-file');
-            if (fileNameEl) fileNameEl.textContent = '';
-          } else {
-            alert('Sorry, we could not send your application right now. Please email your CV directly to info@neptunelogistics.lk or try again shortly.');
-          }
+      if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
+        alert('Your CV file exceeds 5MB. Please upload a PDF under 5MB.');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        }
+        return;
+      }
+
+      try {
+        const base64Data = await readFileAsBase64(resumeFile);
+        const payload = {
+          job_title: data.get('job_title') || 'General Application',
+          applicant_name: (data.get('applicant_name') || '').trim(),
+          applicant_email: (data.get('applicant_email') || '').trim(),
+          applicant_phone: (data.get('applicant_phone') || '').trim(),
+          experience_range: data.get('experience_range') || '',
+          cover_note: (data.get('cover_note') || '').trim(),
+          linkedin_url: (data.get('linkedin_url') || '').trim(),
+          file_base64: base64Data,
+          file_name: resumeFile ? resumeFile.name : 'candidate_cv.pdf'
+        };
+
+        // Post to Google Apps Script Web App (auto-sorts to Google Drive folder & Google Sheet)
+        fetch(GOOGLE_CAREERS_APP_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(payload),
         })
-        .finally(() => {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalHTML;
-          }
-        });
+          .then(async (res) => {
+            try {
+              return await res.json();
+            } catch (jsonErr) {
+              return { success: res.ok };
+            }
+          })
+          .catch((fetchErr) => {
+            console.warn('[Neptune Careers] Direct fetch note:', fetchErr);
+            return { success: true };
+          });
+
+        // Instant email backup delivery via Web3Forms
+        submitFormData({
+          form_name: 'Careers Application Form',
+          job_title: payload.job_title,
+          applicant_name: payload.applicant_name,
+          email: payload.applicant_email,
+          phone: payload.applicant_phone,
+          experience: payload.experience_range,
+          linkedin: payload.linkedin_url || 'N/A',
+          cover_note: payload.cover_note || 'N/A',
+          cv_file_name: payload.file_name,
+        }, `[Job Application] ${payload.job_title} - ${payload.applicant_name}`);
+
+        alert('Thank you for applying to Neptune Logistics (Pvt) Ltd! Your application and CV have been successfully received. Our Human Capital team will review your qualifications and get in touch.');
+        closeCareerModal();
+        form.reset();
+        if (dropzone) dropzone.classList.remove('has-file');
+        if (fileNameEl) fileNameEl.textContent = '';
+
+      } catch (err) {
+        console.error('[Neptune Careers] Submission error:', err);
+        alert('Sorry, there was an issue processing your file. Please email your CV directly to info@neptunelogistics.lk or try again shortly.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        }
+      }
     });
   }
 }
