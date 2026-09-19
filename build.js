@@ -4,15 +4,54 @@ const path = require('path');
 console.log("=== Neptune Logistics Build Step ===");
 
 // ══════════════════════════════════════════════════════════════════════════
-// Automated HTML Cache-Busting Pipeline
+// 1. Component Synchronization Pipeline
 // ══════════════════════════════════════════════════════════════════════════
-// Generates a unique build version string and dynamically injects it as a
-// query parameter (?v=timestamp) to all stylesheet and script imports across 
-// all HTML files. This guarantees users load fresh CSS/JS immediately on redeployment.
+// Ensures .partial and .html component files stay in 100% sync
+try {
+  const navbarPartial = path.join(__dirname, 'components/navbar.partial');
+  const navbarHtml = path.join(__dirname, 'components/navbar.html');
+  if (fs.existsSync(navbarPartial)) {
+    fs.copyFileSync(navbarPartial, navbarHtml);
+    console.log("  - Synchronized components/navbar.partial -> components/navbar.html");
+  }
 
+  const footerPartial = path.join(__dirname, 'components/footer.partial');
+  const footerHtml = path.join(__dirname, 'components/footer.html');
+  if (fs.existsSync(footerPartial)) {
+    fs.copyFileSync(footerPartial, footerHtml);
+    console.log("  - Synchronized components/footer.partial -> components/footer.html");
+  }
+} catch (err) {
+  console.error("ERROR syncing component files:", err);
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// 2. Automated Cache-Busting Pipeline
+// ══════════════════════════════════════════════════════════════════════════
 console.log("Starting Automated HTML Cache-Busting Pipeline...");
 const buildVersion = Date.now().toString();
 console.log(`Using cache-buster build token: ?v=${buildVersion}`);
+
+// Update loaders with buildVersion token
+try {
+  const navLoaderPath = path.join(__dirname, 'js/navbar-loader.js');
+  if (fs.existsSync(navLoaderPath)) {
+    let navLoader = fs.readFileSync(navLoaderPath, 'utf-8');
+    navLoader = navLoader.replace(/const token = '[^']*';/, `const token = 'v=${buildVersion}';`);
+    fs.writeFileSync(navLoaderPath, navLoader, 'utf-8');
+    console.log("  - Updated js/navbar-loader.js token");
+  }
+
+  const footerLoaderPath = path.join(__dirname, 'js/footer-loader.js');
+  if (fs.existsSync(footerLoaderPath)) {
+    let footerLoader = fs.readFileSync(footerLoaderPath, 'utf-8');
+    footerLoader = footerLoader.replace(/const token = '[^']*';/, `const token = 'v=${buildVersion}';`);
+    fs.writeFileSync(footerLoaderPath, footerLoader, 'utf-8');
+    console.log("  - Updated js/footer-loader.js token");
+  }
+} catch (err) {
+  console.error("ERROR updating loaders token:", err);
+}
 
 function getHtmlFiles(dir, files_ = []) {
   if (!fs.existsSync(dir)) return files_;
@@ -40,7 +79,6 @@ try {
     let replaced = false;
 
     // Matches href/src pointing to css/, js/, or assets/favicon-wave.png with optional leading relative paths (./ or ../)
-    // e.g., href="css/navbar.css", href="../css/navbar.css?v=1.0", href="assets/favicon-wave.png"
     const newContent = content.replace(
       /((?:href|src)=["'])((?:\.\.\/|\.\/)?(?:(?:css|js)\/[^"'\s?]+|assets\/favicon-wave\.png))(?:\?[^"'\s]*)?(["'])/g,
       (match, prefix, pathAndName, suffix) => {

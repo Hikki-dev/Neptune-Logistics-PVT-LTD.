@@ -20,18 +20,41 @@
     if (year) year.textContent = new Date().getFullYear();
   }
 
-  fetch(root + 'components/footer.partial?v=1.0.3')
-    .then(function (response) { return response.text(); })
-    .then(function (html) {
-      placeholder.innerHTML = adjustPaths(html);
-      setFooterYear();
+  function mountFooter(html) {
+    placeholder.innerHTML = adjustPaths(html);
+    setFooterYear();
+  }
+
+  const token = 'v=1789814848192';
+
+  fetch(root + 'components/footer.partial?' + token)
+    .then(function (r) {
+      if (!r.ok) throw new Error('Footer relative partial failed: ' + r.status);
+      return r.text();
     })
+    .then(mountFooter)
     .catch(function () {
-      fetch('/components/footer.partial?v=1.0.3')
-        .then(function (response) { return response.text(); })
-        .then(function (html) {
-          placeholder.innerHTML = adjustPaths(html);
-          setFooterYear();
+      fetch('/components/footer.partial?' + token)
+        .then(function (r) {
+          if (!r.ok) throw new Error('Footer root partial failed: ' + r.status);
+          return r.text();
+        })
+        .then(mountFooter)
+        .catch(function () {
+          fetch(root + 'components/footer.html?' + token)
+            .then(function (r) {
+              if (!r.ok) throw new Error('Footer relative html failed: ' + r.status);
+              return r.text();
+            })
+            .then(mountFooter)
+            .catch(function () {
+              fetch('/components/footer.html?' + token)
+                .then(function (r) {
+                  if (!r.ok) throw new Error('Footer root html failed: ' + r.status);
+                  return r.text();
+                })
+                .then(mountFooter);
+            });
         });
     });
 })();

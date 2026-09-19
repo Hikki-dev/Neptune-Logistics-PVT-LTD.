@@ -13,30 +13,32 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://neptunelogistics.lk/terms-of-use">
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="shortcut icon" href="assets/favicon-n.png?v=1789204260344" type="image/png">
-  <link rel="icon" type="image/png" href="assets/favicon-n.png?v=1789204260344">
+  <link rel="shortcut icon" href="assets/favicon-n.png" type="image/png">
+  <link rel="icon" type="image/png" href="assets/favicon-n.png">
   <link rel="apple-touch-icon" href="assets/favicon-apple-touch.png">
-  <link rel="stylesheet" href="css/base.css?v=1789813991151">
-  <link rel="stylesheet" href="css/legal.css?v=1789813991151">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Master Uthao-Styled Design System Stylesheet -->
+  <link rel="stylesheet" href="css/uthao-style.css?v=1789814848192" />
+  <link rel="stylesheet" href="css/legal.css?v=1789814848192" />
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="legal-header" role="banner">
-    <nav class="legal-nav" role="navigation" aria-label="Legal Navigation">
-      <div class="container legal-nav-inner">
-        <a href="/" class="legal-back-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Back to Home
-        </a>
-        <a href="/\" aria-label="Neptune Logistics Home">
-          <img height="258" width="800" src="assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="legal-logo-img">
-        </a>
-      </div>
-    </nav>
+  <!-- Global Header / Navbar -->
+  <div id="navbar-placeholder"></div>
+  <script src="js/navbar-loader.js?v=1789814848192"></script>
+
+  <!-- Legal Hero Banner -->
+  <header class="legal-hero-section" style="background: linear-gradient(180deg, #09152e 0%, #0d2146 100%); padding: calc(var(--nav-h, 74px) + 50px) 0 50px; color: var(--white); text-align: center;">
     <div class="container">
-      <h1 class="legal-title">Terms of Use</h1>
-      <div class="legal-meta">Last Updated: May 20, 2026</div>
+      <h1 class="legal-title" style="margin: 0 0 10px; color: #fff; font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800;">Terms of Use</h1>
+      <div class="legal-meta" style="color: rgba(255,255,255,0.6); font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase;">Last Updated: May 20, 2026</div>
     </div>
   </header>
 
@@ -75,22 +77,12 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="legal-footer" role="contentinfo">
-    <div class="container">
-      <img loading="lazy" height="258" width="800" src="assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="legal-footer-logo">
-      <div class="footer-copy">&copy; 2026 Neptune Logistics (Pvt) Ltd. All rights reserved.</div>
-      <div class="legal-footer-links">
-        <a href="/privacy-policy" class="legal-footer-link">Privacy Policy</a>
-        <span class="legal-footer-divider">|</span>
-        <a href="/terms-of-use" class="legal-footer-link">Terms of Use</a>
-      </div>
-      <div class="legal-footer-disclaimer">
-        This website serves as an independent historical and archival presentation of Capitol AEI, Overseas Courier Service (OCS), and Bridges Worldwide partnerships, and is not operated by, endorsed by, or officially affiliated with DHL Global Forwarding.
-      </div>
-    </div>
-  </footer>
+  <!-- Global Footer -->
+  <div id="footer-placeholder"></div>
+  <script src="js/footer-loader.js?v=1789814848192"></script>
 
-  <script src="js/analytics.js?v=1789813991151"></script>
+  <!-- JavaScript Interactions File -->
+  <script src="js/uthao-interactions.js?v=1789814848192"></script>
+  <script src="js/analytics.js?v=1789814848192"></script>
 </body>
 </html>

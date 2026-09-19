@@ -51,6 +51,7 @@ ErrorDocument 404 /404.html
 </IfModule>
 AddType text/markdown .md
 AddType application/json .json
+AddType text/html .partial
 
 # ---------- CORS + caching for the agent/AI discovery files ----------
 <IfModule mod_headers.c>
