@@ -4502,6 +4502,117 @@ textarea.hero-text-input {
 }
 
 /* ==========================================================================
+   16d-2. CAREER APPLICATION MODAL: IN-MODAL SUCCESS RECEIPT & NOTICES
+   ========================================================================== */
+.career-form-notice {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.career-form-notice.error {
+  display: block;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.career-modal-success {
+  display: none;
+  animation: modalPop 0.25s var(--ease-spring);
+}
+
+.career-success-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.career-success-card {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.career-success-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.career-success-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 18px;
+}
+
+.career-success-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.career-success-item.full-span {
+  grid-column: 1 / -1;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(15, 23, 42, 0.12);
+}
+
+.career-success-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+}
+
+.career-success-value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.career-success-status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 12px;
+  background: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+  white-space: nowrap;
+}
+
+.career-next-steps-box {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+@media (max-width: 640px) {
+  .career-success-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
    16e. CONTAINER CARGO: EQUIPMENT SPECIFICATION SWITCHER
    ========================================================================== */
 .equipment-switcher-section {

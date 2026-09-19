@@ -1423,12 +1423,82 @@ function initCareerApplyModal() {
   const jobTitleSpan = document.querySelector('.career-modal-job-title');
   const jobInput = document.querySelector('.career-modal-job-input');
   const form = document.querySelector('.career-application-form');
+  const modalHeader = modal ? modal.querySelector('.career-modal-header') : null;
+  const successView = modal ? modal.querySelector('.career-modal-success') : null;
+  const noticeEl = modal ? modal.querySelector('.career-form-notice') : null;
+  const successDoneBtn = modal ? modal.querySelector('.btn-career-success-done') : null;
+  const successCloseBtn = modal ? modal.querySelector('.career-success-close-btn') : null;
 
   if (!modal) return;
+
+  function showNotice(msg, isError = true) {
+    if (!noticeEl) return;
+    noticeEl.textContent = msg;
+    noticeEl.className = 'career-form-notice' + (isError ? ' error' : '');
+    noticeEl.style.display = 'block';
+  }
+
+  function hideNotice() {
+    if (!noticeEl) return;
+    noticeEl.style.display = 'none';
+    noticeEl.textContent = '';
+  }
+
+  function showFormView() {
+    if (modalHeader) modalHeader.style.display = 'flex';
+    if (form) form.style.display = 'flex';
+    if (successView) successView.style.display = 'none';
+    hideNotice();
+  }
+
+  function formatPlainEnglishDate(date = new Date()) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const day = date.getDate();
+    let suffix = 'th';
+    if (day === 1 || day === 21 || day === 31) suffix = 'st';
+    else if (day === 2 || day === 22) suffix = 'nd';
+    else if (day === 3 || day === 23) suffix = 'rd';
+
+    let hours = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+
+    return `${day}${suffix} ${months[date.getMonth()]} ${date.getFullYear()} at ${hours}:${minutes} ${ampm}`;
+  }
+
+  function showSuccessView(payload, formattedDate) {
+    if (modalHeader) modalHeader.style.display = 'none';
+    if (form) form.style.display = 'none';
+    if (successView) {
+      const nameEl = successView.querySelector('.career-success-name');
+      const jobEl = successView.querySelector('.career-success-job');
+      const nameVal = successView.querySelector('.career-success-name-val');
+      const jobVal = successView.querySelector('.career-success-job-val');
+      const emailVal = successView.querySelector('.career-success-email-val');
+      const phoneVal = successView.querySelector('.career-success-phone-val');
+      const fileVal = successView.querySelector('.career-success-file-val');
+      const timeVal = successView.querySelector('.career-success-timestamp');
+
+      if (nameEl) nameEl.textContent = payload.applicant_name || 'Candidate';
+      if (jobEl) jobEl.textContent = payload.job_title || 'Position';
+      if (nameVal) nameVal.textContent = payload.applicant_name || '—';
+      if (jobVal) jobVal.textContent = payload.job_title || '—';
+      if (emailVal) emailVal.textContent = payload.applicant_email || '—';
+      if (phoneVal) phoneVal.textContent = payload.applicant_phone || '—';
+      if (fileVal) fileVal.textContent = payload.file_name || 'Uploaded PDF';
+      if (timeVal) timeVal.textContent = formattedDate;
+
+      successView.style.display = 'block';
+      const contentEl = modal.querySelector('.career-modal-content');
+      if (contentEl) contentEl.scrollTop = 0;
+    }
+  }
 
   applyBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      showFormView();
       const job = btn.getAttribute('data-job') || 'Position Application';
       if (jobTitleSpan) jobTitleSpan.textContent = job;
       if (jobInput) jobInput.value = job;
@@ -1440,11 +1510,21 @@ function initCareerApplyModal() {
   function closeCareerModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+    setTimeout(showFormView, 250);
   }
 
   if (closeBtn) closeBtn.addEventListener('click', closeCareerModal);
+  if (successCloseBtn) successCloseBtn.addEventListener('click', closeCareerModal);
+  if (successDoneBtn) successDoneBtn.addEventListener('click', closeCareerModal);
+
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeCareerModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeCareerModal();
+    }
   });
 
   // CV drag-and-drop / tap-to-browse dropzone
@@ -1454,6 +1534,7 @@ function initCareerApplyModal() {
 
   function showSelectedFile(file) {
     if (!file) return;
+    hideNotice();
     fileNameEl.textContent = file.name;
     dropzone.classList.add('has-file');
   }
@@ -1491,7 +1572,7 @@ function initCareerApplyModal() {
       const file = e.dataTransfer.files[0];
       if (!file) return;
       if (file.type !== 'application/pdf') {
-        alert('Please attach your CV as a PDF file.');
+        showNotice('Please attach your CV as a PDF file.');
         return;
       }
       fileInput.files = e.dataTransfer.files;
@@ -1514,6 +1595,8 @@ function initCareerApplyModal() {
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      hideNotice();
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
@@ -1523,14 +1606,14 @@ function initCareerApplyModal() {
       const originalHTML = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="button-text _01">Uploading &amp; Submitting...</span>';
+        submitBtn.innerHTML = '<span class="button-text _01">Uploading CV &amp; Submitting...</span>';
       }
 
       const data = new FormData(form);
       const resumeFile = fileInput && fileInput.files ? fileInput.files[0] : null;
 
       if (resumeFile && resumeFile.size > 5 * 1024 * 1024) {
-        alert('Your CV file exceeds 5MB. Please upload a PDF under 5MB.');
+        showNotice('Your CV file exceeds 5MB. Please upload a PDF under 5MB.');
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalHTML;
@@ -1567,27 +1650,22 @@ function initCareerApplyModal() {
           hr_remarks: ''
         };
 
-        // Post to Google Apps Script Web App (auto-sorts to Google Drive folder & Google Sheet)
-        fetch(GOOGLE_CAREERS_APP_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          },
-          body: JSON.stringify(payload),
-        })
-          .then(async (res) => {
-            try {
-              return await res.json();
-            } catch (jsonErr) {
-              return { success: res.ok };
-            }
-          })
-          .catch((fetchErr) => {
-            console.warn('[Neptune Careers] Direct fetch note:', fetchErr);
-            return { success: true };
+        // 1. Post to Google Apps Script Web App (auto-sorts to Google Drive folder & Google Sheet)
+        try {
+          const res = await fetch(GOOGLE_CAREERS_APP_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8',
+            },
+            body: JSON.stringify(payload),
           });
+          const gasRes = await res.json();
+          console.log('[Neptune Careers] Google Drive & Sheet sync complete:', gasRes);
+        } catch (fetchErr) {
+          console.warn('[Neptune Careers] Direct fetch note:', fetchErr);
+        }
 
-        // Instant email backup delivery via Web3Forms
+        // 2. Instant email backup delivery via Web3Forms
         submitFormData({
           form_name: 'Careers Application Form',
           job_title: payload.job_title,
@@ -1600,15 +1678,18 @@ function initCareerApplyModal() {
           cv_file_name: payload.file_name,
         }, `[Job Application] ${payload.job_title} - ${payload.applicant_name}`);
 
-        alert('Thank you for applying to Neptune Logistics (Pvt) Ltd! Your application and CV have been successfully received. Our Human Capital team will review your qualifications and get in touch.');
-        closeCareerModal();
+        // 3. Display official in-modal confirmation receipt
+        const formattedDate = formatPlainEnglishDate();
+        showSuccessView(payload, formattedDate);
+
+        // Reset form fields
         form.reset();
         if (dropzone) dropzone.classList.remove('has-file');
         if (fileNameEl) fileNameEl.textContent = '';
 
       } catch (err) {
         console.error('[Neptune Careers] Submission error:', err);
-        alert('Sorry, there was an issue processing your file. Please email your CV directly to info@neptunelogistics.lk or try again shortly.');
+        showNotice('We could not upload your CV. Please verify your file or email it directly to info@neptunelogistics.lk');
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

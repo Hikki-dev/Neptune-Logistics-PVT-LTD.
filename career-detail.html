@@ -29,7 +29,7 @@
     rel="stylesheet" />
 
   <!-- Master Uthao-Styled Design System Stylesheet -->
-  <link rel="stylesheet" href="css/uthao-style.css?v=1789818176993" />
+  <link rel="stylesheet" href="css/uthao-style.css?v=1789818899665" />
 
   <!-- Preload Hero Image -->
   <link rel="preload" as="image" href="assets/images/Sri%20Lanka%20images/port.jpg" />
@@ -43,7 +43,7 @@
          1. GLOBAL HEADER / NAVBAR
          ══════════════════════════════════════════════════════════════ -->
     <div id="navbar-placeholder"></div>
-    <script src="js/navbar-loader.js?v=1789818176993"></script>
+    <script src="js/navbar-loader.js?v=1789818899665"></script>
 
     <!-- ══════════════════════════════════════════════════════════════
          2. JOB DESCRIPTION HERO
@@ -318,6 +318,8 @@
         <form class="career-application-form career-modal-body">
           <input type="hidden" class="career-modal-job-input" name="job_title" value="Business Development Manager (BDM)" />
 
+          <div class="career-form-notice" role="alert"></div>
+
           <div style="display: flex; flex-direction: column; gap: 6px;">
             <label style="font-size: 13px; font-weight: 700; color: var(--dark); text-transform: uppercase;">Full Name *</label>
             <input type="text" name="applicant_name" class="hero-text-input" style="border: 1px solid rgba(15,23,42,0.15);" placeholder="Enter your full name" required />
@@ -377,6 +379,80 @@
             <span class="button-text _02" aria-hidden="true">Submit Application</span>
           </button>
         </form>
+
+        <!-- IN-MODAL OFFICIAL APPLICATION CONFIRMATION (REPLACES GENERIC BROWSER ALERT) -->
+        <div class="career-modal-success" style="display: none;">
+          <div class="career-modal-header" style="border-bottom: 1px solid rgba(15,23,42,0.08); padding: 24px 28px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span class="career-success-badge-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <div>
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #059669; display: block;">Application Confirmed</span>
+                <h3 style="margin: 0; font-size: 20px; font-weight: 700; color: var(--dark);">Successfully Received</h3>
+              </div>
+            </div>
+            <button class="career-modal-close career-success-close-btn" aria-label="Close modal" style="font-size: 24px; cursor: pointer; border: none; background: none;">&times;</button>
+          </div>
+
+          <div class="career-modal-body" style="padding: 28px;">
+            <p style="font-size: 14px; line-height: 1.6; color: var(--slate); margin: 0;">
+              Thank you, <strong class="career-success-name" style="color: var(--dark);">Candidate</strong>. Your application and CV for <strong class="career-success-job" style="color: var(--primary-blue);">Position</strong> have been securely recorded and dispatched directly to our Human Capital team.
+            </p>
+
+            <!-- Formal Application Receipt Card -->
+            <div class="career-success-card">
+              <div class="career-success-card-header">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate);">Neptune Application Record</span>
+                <span class="career-success-timestamp" style="font-size: 12px; color: var(--slate); font-weight: 600;"></span>
+              </div>
+              <div class="career-success-grid">
+                <div class="career-success-item">
+                  <span class="career-success-label">Position Applied</span>
+                  <span class="career-success-value career-success-job-val"></span>
+                </div>
+                <div class="career-success-item">
+                  <span class="career-success-label">Applicant Name</span>
+                  <span class="career-success-value career-success-name-val"></span>
+                </div>
+                <div class="career-success-item">
+                  <span class="career-success-label">Email Address</span>
+                  <span class="career-success-value career-success-email-val"></span>
+                </div>
+                <div class="career-success-item">
+                  <span class="career-success-label">Phone Number</span>
+                  <span class="career-success-value career-success-phone-val"></span>
+                </div>
+                <div class="career-success-item full-span">
+                  <span class="career-success-label">Uploaded Resume / CV</span>
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 2px;">
+                    <span class="career-success-value career-success-file-val" style="word-break: break-all; font-family: var(--font-mono, monospace); font-size: 12.5px;"></span>
+                    <span class="career-success-status-pill">Archived to Drive</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="career-next-steps-box">
+              <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--dark); margin-bottom: 8px;">Next Steps in the Hiring Process</div>
+              <ul style="margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; color: var(--slate); display: flex; flex-direction: column; gap: 6px;">
+                <li>Our Human Capital team and hiring division lead will review your CV against this vacancy's requirements.</li>
+                <li>If shortlisted, our recruitment officer will contact you directly via phone or email to schedule an initial interview.</li>
+                <li>Your profile remains active in our verified talent pool for upcoming specialized roles at Neptune Logistics.</li>
+              </ul>
+            </div>
+
+            <button type="button" class="uthao-button primary full-width btn-career-success-done" style="margin-top: 4px;">
+              <span class="button-text _01">Done &bull; Return to Careers</span>
+              <span class="button-text _02" aria-hidden="true">Done &bull; Return to Careers</span>
+            </button>
+
+            <p style="font-size: 12px; color: var(--slate-light); text-align: center; margin: 0;">
+              Have questions regarding your application? Contact our team directly at <a href="mailto:careers@neptunelogistics.lk" style="color: var(--primary-blue); text-decoration: underline; font-weight: 500;">careers@neptunelogistics.lk</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -384,7 +460,7 @@
          5. GLOBAL FOOTER
          ══════════════════════════════════════════════════════════════ -->
     <div id="footer-placeholder"></div>
-    <script src="js/footer-loader.js?v=1789818176993"></script>
+    <script src="js/footer-loader.js?v=1789818899665"></script>
 
     <!-- Floating WhatsApp Action -->
     <a href="https://api.whatsapp.com/send?phone=94777441990&text=Hello%20Neptune%20Logistics%2C%20I%20would%20like%20to%20inquire%20about%20career%20opportunities."
@@ -399,7 +475,7 @@
   </div>
 
   <!-- JavaScript Interactions File -->
-  <script src="js/uthao-interactions.js?v=1789818176993"></script>
+  <script src="js/uthao-interactions.js?v=1789818899665"></script>
 </body>
 
 </html>
