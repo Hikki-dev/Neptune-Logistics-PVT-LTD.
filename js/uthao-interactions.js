@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initShipmentRouteAnimation();
   initEquipmentSwitcher();
   initServicesCarousel();
+  initInfiniteMarquees();
   initJobVacancyFilter();
   initCareerApplyModal();
   initCareerDetailPage();
@@ -2085,7 +2086,7 @@ function initCookieConsent() {
 }
 
 /* ==========================================================================
-   9. ALL-SERVICES CAROUSEL (arrows + dot pagination over native scroll-snap)
+   9. ALL-SERVICES CAROUSEL (arrows + dot pagination + seamless infinite loop)
    ========================================================================== */
 function initServicesCarousel() {
   const track = document.getElementById('services-carousel-track');
@@ -2094,30 +2095,36 @@ function initServicesCarousel() {
   const dotsWrap = document.getElementById('services-carousel-dots');
   if (!track || !dotsWrap) return;
 
-  // Clone the full set before and after the real cards so next/prev can
-  // scroll seamlessly past either end; we silently snap back into the real
-  // set (no animation) once the smooth scroll settles.
   const realCards = Array.from(track.children);
   const count = realCards.length;
+  if (!count) return;
 
-  realCards.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.setAttribute('tabindex', '-1');
-    track.appendChild(clone);
-  });
+  // Clone 2 sets before and 2 sets after for truly endless scrolling room
+  // Layout: [pre-clones 2] [pre-clones 1] [REAL CARDS] [post-clones 1] [post-clones 2]
+  // This gives ample headroom so rapid clicks or dragging never hit a blank wall.
+  for (let s = 0; s < 2; s++) {
+    realCards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      track.appendChild(clone);
+    });
+  }
 
-  realCards.slice().reverse().forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.setAttribute('tabindex', '-1');
-    track.insertBefore(clone, track.firstChild);
-  });
+  for (let s = 0; s < 2; s++) {
+    realCards.slice().reverse().forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      track.insertBefore(clone, track.firstChild);
+    });
+  }
 
   const allCards = Array.from(track.children);
-  // allCards layout: [prepend clones (count)] [real cards (count)] [append clones (count)]
-  const realStart = count;
+  const totalCards = allCards.length; // 5 * count = 30 cards
+  const realStart = count * 2; // real cards start at index 12
 
+  dotsWrap.innerHTML = '';
   realCards.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.type = 'button';
@@ -2146,50 +2153,64 @@ function initServicesCarousel() {
   }
 
   function setActiveDot() {
-    const realIndex = realIndexFromCombined(nearestCombinedIndex());
+    const combined = nearestCombinedIndex();
+    const realIndex = realIndexFromCombined(combined);
     dots.forEach((d, i) => d.classList.toggle('active', i === realIndex));
     allCards.forEach((card, i) => {
       card.classList.toggle('active', realIndexFromCombined(i) === realIndex);
     });
   }
 
-  // Scroll the track's own horizontal axis directly (track.scrollLeft /
-  // track.scrollTo) instead of element.scrollIntoView() — scrollIntoView
-  // considers the whole ancestor chain including the window, so on a card
-  // that isn't yet vertically visible (true on every page load, since the
-  // carousel sits below the fold) it scrolls the entire page down to the
-  // section instead of just sliding the track sideways.
   let settleTimer = null;
   function scheduleSettleCheck() {
     if (settleTimer) clearTimeout(settleTimer);
     settleTimer = setTimeout(() => {
-      const combinedIndex = nearestCombinedIndex();
-      if (combinedIndex < realStart || combinedIndex >= realStart + count) {
-        const realIndex = realIndexFromCombined(combinedIndex);
-        track.scrollLeft = allCards[realStart + realIndex].offsetLeft;
-      }
-      setActiveDot();
-    }, 220);
+      rebalanceTrack();
+    }, 280);
   }
 
-  // prev/next always step exactly one slot in the combined (cloned) track —
-  // the settle check then silently snaps back into the real zone so the
-  // wrap feels seamless and infinite in either direction.
-  function step(direction) {
+  function rebalanceTrack() {
     const combinedIndex = nearestCombinedIndex();
+    // If we have drifted into the outer clone regions, seamlessly snap back to the center real set
+    if (combinedIndex < realStart || combinedIndex >= realStart + count) {
+      const realIndex = realIndexFromCombined(combinedIndex);
+      const targetCard = allCards[realStart + realIndex];
+      if (targetCard) {
+        track.scrollLeft = targetCard.offsetLeft;
+      }
+    }
+    setActiveDot();
+  }
+
+  function step(direction) {
+    let combinedIndex = nearestCombinedIndex();
+
+    // Guard: if already near either outer boundary, rebalance before stepping
+    if (direction > 0 && combinedIndex >= totalCards - count - 1) {
+      const realIndex = realIndexFromCombined(combinedIndex);
+      track.scrollLeft = allCards[realStart + realIndex].offsetLeft;
+      combinedIndex = realStart + realIndex;
+    } else if (direction < 0 && combinedIndex <= count) {
+      const realIndex = realIndexFromCombined(combinedIndex);
+      track.scrollLeft = allCards[realStart + realIndex].offsetLeft;
+      combinedIndex = realStart + realIndex;
+    }
+
     const nextCombined = combinedIndex + direction;
-    track.scrollTo({ left: allCards[nextCombined].offsetLeft, behavior: 'smooth' });
+    if (allCards[nextCombined]) {
+      track.scrollTo({ left: allCards[nextCombined].offsetLeft, behavior: 'smooth' });
+    }
     scheduleSettleCheck();
   }
 
-  // Dot clicks jump directly to a given real index (forward delta through
-  // the combined track — a simple, always-correct path since it never needs
-  // to cross the clone boundary in the "wrong" direction).
   function jumpToReal(targetRealIndex) {
     const combinedIndex = nearestCombinedIndex();
     const currentReal = realIndexFromCombined(combinedIndex);
     const forwardDelta = ((targetRealIndex - currentReal) % count + count) % count;
-    track.scrollTo({ left: allCards[combinedIndex + forwardDelta].offsetLeft, behavior: 'smooth' });
+    const targetCombined = combinedIndex + forwardDelta;
+    if (allCards[targetCombined]) {
+      track.scrollTo({ left: allCards[targetCombined].offsetLeft, behavior: 'smooth' });
+    }
     scheduleSettleCheck();
   }
 
@@ -2197,14 +2218,114 @@ function initServicesCarousel() {
     window.requestAnimationFrame(setActiveDot);
   }, { passive: true });
 
-  if (prevBtn) prevBtn.addEventListener('click', () => step(-1));
-  if (nextBtn) nextBtn.addEventListener('click', () => step(1));
+  if ('onscrollend' in window) {
+    track.addEventListener('scrollend', rebalanceTrack, { passive: true });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { stopAutoAdvance(); step(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { stopAutoAdvance(); step(1); });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => jumpToReal(i));
+    dot.addEventListener('click', () => { stopAutoAdvance(); jumpToReal(i); });
   });
 
-  // Start positioned on the first real card (skip past the prepended clones).
-  track.scrollLeft = allCards[realStart].offsetLeft;
-  setActiveDot();
+  // Auto-advance with pause on interaction
+  let autoTimer = null;
+  function startAutoAdvance() {
+    stopAutoAdvance();
+    autoTimer = setInterval(() => {
+      step(1);
+    }, 4500);
+  }
+  function stopAutoAdvance() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  track.addEventListener('mouseenter', stopAutoAdvance);
+  track.addEventListener('mouseleave', startAutoAdvance);
+  track.addEventListener('touchstart', stopAutoAdvance, { passive: true });
+  track.addEventListener('touchend', startAutoAdvance, { passive: true });
+
+  // Initial positioning: start on the first real card
+  requestAnimationFrame(() => {
+    if (allCards[realStart]) {
+      track.scrollLeft = allCards[realStart].offsetLeft;
+    }
+    setActiveDot();
+    startAutoAdvance();
+  });
 }
+
+/* ==========================================================================
+   10. INFINITE SEAMLESS MARQUEES
+   Ensures marquee tracks always have enough duplicate content to span
+   wider than any screen resolution (preventing empty right gaps on wide/ultrawide displays)
+   and loop with zero visible seams.
+   ========================================================================== */
+function initInfiniteMarquees() {
+  const outerElements = document.querySelectorAll('.marquee-strip-outer');
+  if (!outerElements.length) return;
+
+  outerElements.forEach((outer) => {
+    const track = outer.querySelector('.marquee-track');
+    if (!track) return;
+
+    // Check if track already has .marquee-group children
+    let groups = Array.from(track.querySelectorAll(':scope > .marquee-group'));
+    if (groups.length === 0) {
+      // If flat items exist, wrap them in a .marquee-group
+      const items = Array.from(track.children);
+      if (!items.length) return;
+      const group1 = document.createElement('div');
+      group1.className = 'marquee-group';
+      items.forEach((el) => group1.appendChild(el));
+      track.appendChild(group1);
+      groups = [group1];
+    }
+
+    const group1 = groups[0];
+    const originalChildren = Array.from(group1.children);
+    if (!originalChildren.length) return;
+
+    // Target minimum width: at least 2.2x the viewport width or 3800px (handles 4K monitors)
+    const minTargetWidth = Math.max(window.innerWidth * 2.2, 3800);
+
+    // Duplicate items inside group1 until it exceeds minTargetWidth
+    let currentWidth = group1.scrollWidth;
+    let safetyCounter = 0;
+    while (currentWidth < minTargetWidth && safetyCounter < 10) {
+      originalChildren.forEach((child) => {
+        group1.appendChild(child.cloneNode(true));
+      });
+      currentWidth = group1.scrollWidth;
+      safetyCounter++;
+    }
+
+    // Remove any previously appended duplicate groups
+    for (let i = 1; i < groups.length; i++) {
+      groups[i].remove();
+    }
+
+    // Append an exact clone of group1 as group2 for seamless 50% loop
+    const group2 = group1.cloneNode(true);
+    group2.setAttribute('aria-hidden', 'true');
+    track.appendChild(group2);
+
+    // Set consistent, smooth marquee animation speed (~50px per second)
+    const speedPxPerSec = 50;
+    const duration = Math.max(25, Math.round(group1.scrollWidth / speedPxPerSec));
+    track.style.animationDuration = `${duration}s`;
+
+    // Pause on hover
+    outer.addEventListener('mouseenter', () => {
+      track.style.animationPlayState = 'paused';
+    });
+    outer.addEventListener('mouseleave', () => {
+      track.style.animationPlayState = 'running';
+    });
+  });
+}
+

@@ -28,7 +28,7 @@
     }
   }
 
-  const token = 'v=1789815691651';
+  const token = 'v=1789815966556';
 
   // Primary fetch: navbar.partial (immune to Live Server SVG injection bug)
   fetch(root + 'components/navbar.partial?' + token)
