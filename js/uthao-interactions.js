@@ -4,6 +4,73 @@
  */
 
 /* ==========================================================================
+   0. SERVICE WORKER & CLEAN URL ENGINE
+   Enables extensionless clean URLs (e.g. /about, /careers, /ocean-cargo)
+   across all environments including VS Code Live Server and cPanel.
+   ========================================================================== */
+
+// 1. Clean .html from the visible browser address bar if present
+(function cleanUrlBar() {
+  try {
+    if (window.location.protocol.startsWith('http') && window.location.pathname.endsWith('.html')) {
+      var cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') || window.location.pathname.replace(/\.html$/, '') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  } catch (e) {}
+})();
+
+// 2. Register Service Worker for seamless clean URL resolution
+if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').catch(function (err) {
+      console.warn('[Neptune SW] Registration notice:', err);
+    });
+  });
+}
+
+// 3. Fallback Link Interceptor for Local Static Servers (e.g. VS Code Live Server)
+// When on localhost/127.0.0.1, if Service Worker is not active yet (e.g. instant first click),
+// seamlessly routes to .html and cleans address bar so user NEVER sees 404!
+document.addEventListener('click', function (e) {
+  var anchor = e.target.closest('a');
+  if (!anchor || e.defaultPrevented) return;
+
+  // Ignore modified clicks (Ctrl/Cmd click for new tab)
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || anchor.target === '_blank') return;
+
+  var rawHref = anchor.getAttribute('href');
+  if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('javascript:')) {
+    return;
+  }
+
+  // Check origin
+  var targetUrl;
+  try {
+    targetUrl = new URL(anchor.href, window.location.origin);
+  } catch (err) {
+    return;
+  }
+  if (targetUrl.origin !== window.location.origin) return;
+
+  // Only handle local development environments (VS Code Live Server on localhost / 127.0.0.1)
+  var isLocalStatic = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  if (isLocalStatic) {
+    var targetPath = targetUrl.pathname;
+    if (targetPath === '/' || targetPath === '') return;
+
+    if (targetPath.length > 1 && targetPath.endsWith('/')) {
+      targetPath = targetPath.slice(0, -1);
+    }
+    var lastPart = targetPath.substring(targetPath.lastIndexOf('/') + 1);
+    if (lastPart && !lastPart.includes('.')) {
+      e.preventDefault();
+      window.location.href = targetPath + '.html' + targetUrl.search + targetUrl.hash;
+    }
+  }
+});
+
+
+/* ==========================================================================
    0. SHARED FORM-TO-EMAIL DELIVERY (Web3Forms)
    Every form on the site (quote wizard, contact form, career application)
    posts here so a real submission actually reaches Neptune's inbox.
