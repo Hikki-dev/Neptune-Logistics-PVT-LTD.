@@ -1539,17 +1539,30 @@ function initCareerApplyModal() {
       }
 
       try {
-        const base64Data = await readFileAsBase64(resumeFile);
+        const expMap = {
+          'entry': 'Entry Level / Graduate',
+          '1-3': '1 - 3 Years Relevant Experience',
+          '3-5': '3 - 5 Years Relevant Experience',
+          '5+': '5+ Years (Senior / Specialist)'
+        };
+        const selectedExp = data.get('experience_range') || '';
+        const expLabel = expMap[selectedExp] || selectedExp;
+
         const payload = {
           job_title: data.get('job_title') || 'General Application',
           applicant_name: (data.get('applicant_name') || '').trim(),
           applicant_email: (data.get('applicant_email') || '').trim(),
           applicant_phone: (data.get('applicant_phone') || '').trim(),
-          experience_range: data.get('experience_range') || '',
+          experience: expLabel,
+          companies_worked: 'Detailed in Attached CV',
+          recent_roles: data.get('job_title') || 'Candidate',
+          qualifications: 'See attached PDF',
           cover_note: (data.get('cover_note') || '').trim(),
           linkedin_url: (data.get('linkedin_url') || '').trim(),
           file_base64: base64Data,
-          file_name: resumeFile ? resumeFile.name : 'candidate_cv.pdf'
+          file_name: resumeFile ? resumeFile.name : 'candidate_cv.pdf',
+          status: '🆕 New Application',
+          hr_remarks: ''
         };
 
         // Post to Google Apps Script Web App (auto-sorts to Google Drive folder & Google Sheet)
