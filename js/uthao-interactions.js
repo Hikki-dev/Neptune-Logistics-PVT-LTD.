@@ -301,7 +301,7 @@ const WORLD_COUNTRIES = [
   { name: 'South Korea', flag: '🇰🇷', dial: '82', digits: 10, placeholder: '000 000 0000' },
   { name: 'South Sudan', flag: '🇸🇸', dial: '211', digits: 9, placeholder: '00 000 0000' },
   { name: 'Spain', flag: '🇪🇸', dial: '34', digits: 9, placeholder: '00 000 0000' },
-  { name: 'Sri Lanka', flag: '🇱🇰', dial: '94', digits: 9, placeholder: '00 000 0000' },
+  { name: 'Sri Lanka', flag: '🇱🇰', dial: '94', digits: 10, placeholder: '0XX XXX XXXX' },
   { name: 'Sudan', flag: '🇸🇩', dial: '249', digits: 9, placeholder: '00 000 0000' },
   { name: 'Suriname', flag: '🇸🇷', dial: '597', digits: 7, placeholder: '000 0000' },
   { name: 'Sweden', flag: '🇸🇪', dial: '46', digits: 9, placeholder: '00 000 0000' },
