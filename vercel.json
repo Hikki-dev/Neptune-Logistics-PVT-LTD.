@@ -1,14 +1,16 @@
 {
+  "cleanUrls": true,
   "redirects": [
-    { "source": "/services/sea-freight.html", "destination": "/ocean-cargo.html", "permanent": true },
-    { "source": "/services/sea-freight", "destination": "/ocean-cargo.html", "permanent": true },
-    { "source": "/services/air-freight.html", "destination": "/air-cargo.html", "permanent": true },
-    { "source": "/services/air-freight", "destination": "/air-cargo.html", "permanent": true },
-    { "source": "/services/roadways.html", "destination": "/container-cargo.html", "permanent": true },
-    { "source": "/services/roadways", "destination": "/container-cargo.html", "permanent": true },
-    { "source": "/career.html", "destination": "/careers.html", "permanent": true },
-    { "source": "/career", "destination": "/careers.html", "permanent": true },
+    { "source": "/services/sea-freight.html", "destination": "/ocean-cargo", "permanent": true },
+    { "source": "/services/sea-freight", "destination": "/ocean-cargo", "permanent": true },
+    { "source": "/services/air-freight.html", "destination": "/air-cargo", "permanent": true },
+    { "source": "/services/air-freight", "destination": "/air-cargo", "permanent": true },
+    { "source": "/services/roadways.html", "destination": "/container-cargo", "permanent": true },
+    { "source": "/services/roadways", "destination": "/container-cargo", "permanent": true },
+    { "source": "/career.html", "destination": "/careers", "permanent": true },
+    { "source": "/career", "destination": "/careers", "permanent": true },
     { "source": "/portfolio.html", "destination": "/", "permanent": true },
+    { "source": "/portfolio", "destination": "/", "permanent": true },
     { "source": "/company-profile.html", "destination": "/", "permanent": true },
     { "source": "/company-profile", "destination": "/", "permanent": true }
   ]

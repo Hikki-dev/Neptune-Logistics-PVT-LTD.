@@ -2,8 +2,8 @@
   "name": "neptune-logistics-portal",
   "version": "1.0.0",
   "scripts": {
-    "dev": "python3 -m http.server 8089",
-    "start": "python3 -m http.server 8089",
+    "dev": "python3 dev-server.py",
+    "start": "python3 dev-server.py",
     "build": "node build.js"
   }
 }

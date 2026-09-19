@@ -3603,7 +3603,7 @@ body.has-cookie-banner .whatsapp-float-btn {
 }
 
 .career-hero-section {
-  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.75) 100%), url("/assets/uthao/career-hero-image.avif");
+  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.52) 0%, rgba(15, 23, 42, 0.82) 100%), url("/assets/images/Sri%20Lanka%20images/port.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3900,49 +3900,288 @@ body.has-cookie-banner .whatsapp-float-btn {
    Individual job description page (career-detail.html)
    ========================================================================== */
 .career-detail-hero {
-  padding: calc(var(--nav-h) + 60px) 0 70px;
-  background: var(--f6f5f8);
-  border-bottom: 1px solid var(--border-subtle);
+  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.62) 0%, rgba(15, 23, 42, 0.88) 100%), url("/assets/images/Sri%20Lanka%20images/port.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 40px 40px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 60px) 0 80px;
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
 }
 
 .job-detail-dept-pill {
   display: inline-flex;
   align-items: center;
-  background: var(--blue-light);
-  color: var(--primary-blue);
+  background: rgba(37, 99, 235, 0.24);
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  color: #93c5fd;
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 6px 16px;
   border-radius: var(--radius-pill);
   margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .job-detail-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 800;
-  color: var(--dark);
-  letter-spacing: -0.01em;
+  color: var(--white);
+  letter-spacing: -0.015em;
   margin-bottom: 22px;
 }
 
 .job-detail-desc {
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: var(--slate);
-  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.90);
+  max-width: 720px;
   margin: 22px 0 32px;
 }
 
+.career-detail-hero .vacancy-tag-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.career-detail-hero .vacancy-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 30px;
+  padding: 6px 15px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.career-detail-hero .vacancy-tag svg {
+  width: 14px;
+  height: 14px;
+  color: #60a5fa;
+}
+
+.career-detail-hero .vacancy-tag[style*="blue-light"],
+.career-detail-hero .vacancy-tag[style*="var(--blue-light)"] {
+  background: rgba(37, 99, 235, 0.28) !important;
+  border-color: rgba(96, 165, 250, 0.5) !important;
+  color: #93c5fd !important;
+}
+
+/* High contrast "All Openings" button on career detail hero */
+.career-detail-hero .uthao-button.secondary {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+}
+
+.career-detail-hero .uthao-button.secondary:hover {
+  background: #ffffff;
+  color: var(--dark) !important;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
 #job-detail-notfound .section-h2 {
+  color: var(--white);
   margin-bottom: 12px;
 }
 
 #job-detail-notfound .section-lead-p {
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Career Detail Page: Content Body & Sidebar
+   ========================================================================== */
+.job-detail-body-section {
+  padding: 70px 0 100px;
+  background: #f8fafc;
+}
+
+.job-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+.job-content-card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 44px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.job-block {
+  margin-bottom: 38px;
+}
+
+.job-block:last-child {
+  margin-bottom: 0;
+}
+
+.job-block-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.job-block-title svg {
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.job-block-text {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--slate);
+  margin-bottom: 16px;
+}
+
+.job-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.job-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.job-checklist li svg {
+  color: var(--primary-blue);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.job-sidebar-card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 34px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.job-sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.job-sidebar-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.job-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.job-spec-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--blue-light);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.job-spec-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-spec-label {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--slate-light);
+  font-weight: 700;
+}
+
+.job-spec-value {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.job-sidebar-help {
+  background: #f1f5f9;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
+.job-sidebar-help a {
+  color: var(--primary-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.job-sidebar-help a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .job-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .job-sidebar-card {
+    position: static;
+  }
 }
 
 .vacancy-wrapper {
@@ -4647,9 +4886,17 @@ textarea.hero-text-input {
   .rail-hero-section,
   .delivery-hero-section,
   .about-hero-section,
-  .career-hero-section {
+  .career-hero-section,
+  .career-detail-hero {
     min-height: 540px;
     padding: calc(var(--nav-h) + 36px) 20px 36px;
+  }
+
+  .career-hero-section,
+  .career-detail-hero {
+    background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.58) 0%, rgba(15, 23, 42, 0.88) 100%), url("/assets/images/colombo-port-view-mobile.jpg");
+    background-position: center;
+    background-size: cover;
   }
 
   .container-hero-section {
@@ -5336,5 +5583,141 @@ textarea.hero-text-input {
   font-size: 0.95rem;
   color: var(--slate);
   line-height: 1.7;
+}
+
+/* ==========================================================================
+   35. 404 PAGE STYLING (Neptune Uthao Design System)
+   ========================================================================== */
+.notfound-hero-section {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-h) + 70px) 0 90px;
+  background:
+    radial-gradient(circle at 80% 25%, rgba(37, 99, 235, 0.25), transparent 45%),
+    radial-gradient(circle at 20% 75%, rgba(14, 165, 233, 0.18), transparent 40%),
+    linear-gradient(135deg, #071228 0%, #0d214d 60%, #081530 100%);
+  color: var(--white);
+  border-radius: 0 0 40px 40px;
+  overflow: hidden;
+}
+
+.notfound-content-wrap {
+  max-width: 840px;
+}
+
+.notfound-code-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #93c5fd;
+  background: rgba(37, 99, 235, 0.22);
+  border: 1px solid rgba(96, 165, 250, 0.38);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 24px;
+}
+
+.notfound-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 0 0 20px;
+}
+
+.notfound-desc {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 660px;
+  margin: 0 0 36px;
+}
+
+.notfound-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.notfound-actions .uthao-button.secondary {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.notfound-actions .uthao-button.secondary:hover {
+  background: #ffffff;
+  color: var(--dark) !important;
+  border-color: #ffffff;
+}
+
+.notfound-routes-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.notfound-routes-title {
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #93c5fd;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.notfound-routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.notfound-route-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.notfound-route-link svg {
+  color: #60a5fa;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.notfound-route-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  color: #93c5fd;
+}
+
+.notfound-route-link:hover svg {
+  transform: translateX(2px);
 }
 

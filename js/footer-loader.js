@@ -12,7 +12,7 @@
 
   function adjustPaths(html) {
     if (!isSubdir) return html;
-    return html.replace(/(href|src)="(?!https?:\/\/|#|tel:|mailto:)/g, `$1="${root}`);
+    return html.replace(/(href|src)="(?!https?:\/\/|#|tel:|mailto:|\/)/g, `$1="${root}`);
   }
 
   function setFooterYear() {

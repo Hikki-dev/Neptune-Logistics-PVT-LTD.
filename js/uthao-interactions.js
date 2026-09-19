@@ -585,7 +585,7 @@ function initNavbar() {
     // section itself — not after a small fixed offset — so it never turns
     // solid while a dark hero photo is still visible behind it.
     const heroEl = document.querySelector(
-      '.service-hero, .ocean-hero-section, .air-hero-section, .container-hero-section, .rail-hero-section, .delivery-hero-section, .about-hero-section, .career-hero-section'
+      '.service-hero, .ocean-hero-section, .air-hero-section, .container-hero-section, .rail-hero-section, .delivery-hero-section, .about-hero-section, .career-hero-section, .career-detail-hero, .notfound-hero-section'
     );
     const getThreshold = () => (heroEl ? heroEl.getBoundingClientRect().height - 40 : 30);
 
@@ -1487,10 +1487,162 @@ function initCareerApplyModal() {
 
 /* ==========================================================================
    11b. INDIVIDUAL JOB DESCRIPTION PAGE (career-detail.html)
-   Fetches careers.html (the single source of truth for job content) and
-   pulls out the one .vacancy-item matching ?job=<slug>, rather than
-   duplicating every job's title/description/tags a second time here.
+   Contains full job descriptions in clear, plain English, straight to the
+   point, and tailored directly to Sri Lanka logistics and trade operations.
    ========================================================================== */
+const NEPTUNE_COMPANY_DESCRIPTION = "Neptune Logistics (PVT) LTD is a privately owned logistics company with extensive experience in freight, customs clearance, and end-to-end supply chain solutions. The organization is committed to delivering excellence in a fast-moving, interconnected, and evolving global trade environment. Guided by principles of environmental responsibility, cost efficiency, innovation, and strong client commitment, Neptune Logistics focuses on sustainable service delivery. The company provides value-added services, including consulting on customs processes and procedures, applying stringent values and best practices in daily operations. Neptune Logistics emphasizes relationship-based selling, aiming to build lasting, long-term partnerships with clients.";
+
+const NEPTUNE_JOBS = {
+  'business-development-manager': {
+    title: 'Business Development Manager (BDM)',
+    department: 'Sales & Business Development',
+    location: 'Colombo 13, Sri Lanka',
+    timeType: 'Full Time',
+    experience: '4+ Years Freight Sales Experience',
+    badge: 'Business Development',
+    shortDesc: 'As a Business Development Manager at Neptune, your primary objective is to drive substantial financial growth by acquiring new customers and expanding relationships with existing ones across ocean freight, air freight, and customs clearance solutions.',
+    companyDesc: NEPTUNE_COMPANY_DESCRIPTION,
+    rolePurpose: 'As a Business Development Manager at Neptune, your primary objective is to drive substantial financial growth by acquiring new customers and expanding relationships with existing ones. By understanding customer requirements and aligning them with Neptune solutions, you will play a crucial role in achieving targeted revenue growth and enhancing customer satisfaction.',
+    responsibilities: [
+      'Generate and nurture leads in coordination with vertical marketing and field marketing activities to drive targeted revenue growth.',
+      'Cultivate and nurture leads within assigned geographies, leveraging a value-based approach to create opportunities.',
+      'Manage and expand existing business relationships to generate sustainable revenue growth, including exploring additional regions and products.',
+      'Understand and analyze customers\' business objectives to act as a consultant, translating their strategies into valuable opportunities for Neptune Logistics.',
+      'Present solutions to customers, demonstrating business value and alignment with their goals.',
+      'Identify and develop relationships with key contacts within targeted customer organizations to maximize leverage for Neptune Logistics.',
+      'Collaborate with the solutions group to define innovative solutions that address customer needs and add value to their business operations.'
+    ],
+    qualifications: [
+      'Strong skills in business development, sales planning, and client relationship management, with the ability to conduct effective presentations and negotiations.',
+      'Knowledge of logistics, freight forwarding, customs clearance, and supply chain management, including familiarity with industry regulations and best practices.',
+      'Proficiency in market research, data analysis, and forecasting to identify opportunities and support strategic decision-making.',
+      'Excellent communication and interpersonal skills, with the ability to collaborate across teams and engage professionally with diverse stakeholders.',
+      'Ability to work independently, manage multiple priorities, and meet targets in a fast-paced environment.',
+      'Bachelor’s degree in Business, Logistics, Supply Chain Management, or a related field; equivalent experience in logistics or freight forwarding is highly valued.',
+      'Experience in B2B sales or account management, preferably within logistics or related industries.',
+      'Proficiency in standard office software and CRM tools; familiarity with ERP or logistics management systems is an advantage.'
+    ]
+  },
+
+  'senior-customs-house-agent': {
+    title: 'Senior Customs House Agent',
+    department: 'Customs House Agency (CHA)',
+    location: 'Colombo 13 & Port of Colombo, Sri Lanka',
+    timeType: 'Full Time',
+    experience: '5+ Years Customs Clearance Experience',
+    badge: 'Customs Brokerage',
+    shortDesc: 'Manage and oversee customs clearance operations at the Port of Colombo and Katunayake Air Cargo. Ensure all import and export consignments comply with Sri Lanka Customs regulations without delays or penalties.',
+    companyDesc: NEPTUNE_COMPANY_DESCRIPTION,
+    rolePurpose: 'As a Senior Customs House Agent at Neptune, your primary objective is to manage and oversee all customs clearance operations at the Port of Colombo and Katunayake Air Cargo. You will ensure that all import and export consignments comply with Sri Lanka Customs regulations, avoiding delays and unnecessary penalties for our clients.',
+    responsibilities: [
+      'Prepare, verify, and electronically lodge Customs Declarations (CusDec) using the Sri Lanka Customs ASYCUDA World system.',
+      'Classify goods accurately according to Harmonized System (HS) codes, applicable duty rates, cess, VAT, PAL, and special trade agreements.',
+      'Coordinate with Sri Lanka Customs officers, wharf inspection teams, and border regulatory bodies (Import & Export Control, SLSI, Quarantine, Ministry of Health) for cargo examinations and release.',
+      'Oversee the collection and validation of shipping documents, including Bills of Lading (BL), Commercial Invoices, Packing Lists, Certificates of Origin, and Delivery Orders (DO).',
+      'Supervise wharf clerks and documentation assistants during physical wharf examination and container gate-out procedures.',
+      'Advise clients on import/export duty structures, BOI regulations, bonded warehousing (TIEP scheme), and customs clearance procedures.',
+      'Resolve clearance bottlenecks, tariff disputes, and customs queries promptly to ensure fast turnaround times.'
+    ],
+    qualifications: [
+      'Valid Customs House Agent (CHA) license registered with Sri Lanka Customs is required (or candidate who has passed the Sri Lanka Customs CHA Examination).',
+      'Minimum of 5 years of practical hands-on experience in customs clearance and wharf operations in Sri Lanka.',
+      'Expert knowledge of the ASYCUDA World system and Sri Lanka Customs tariff regulations and documentation.',
+      'Thorough understanding of Colombo Port container terminals (JCT, SAGT, CICT, CWIT) and air cargo handling at Katunayake.',
+      'Strong problem-solving skills with the ability to resolve operational issues at the wharf independently.',
+      'Good communication skills in English and Sinhala (Tamil is an added advantage) to liaise effectively with customs officials and corporate clients.',
+      'High ethical standards and attention to detail in documentation and compliance.'
+    ]
+  },
+
+  'head-of-accounting': {
+    title: 'Head of Accounting',
+    department: 'Finance & Accounting',
+    location: 'Colombo 13, Sri Lanka',
+    timeType: 'Full Time',
+    experience: '6+ Years Accounting Experience',
+    badge: 'Finance & Tax',
+    shortDesc: 'Lead the finance and accounting department, ensuring accurate financial reporting, freight billing reconciliation, cash flow stability, and full compliance with Sri Lankan tax laws.',
+    companyDesc: NEPTUNE_COMPANY_DESCRIPTION,
+    rolePurpose: 'As Head of Accounting at Neptune, your primary objective is to lead the finance department, ensuring accurate financial management, timely freight billing, cash flow stability, and full compliance with Sri Lankan tax laws and accounting standards.',
+    responsibilities: [
+      'Oversee day-to-day accounting operations, including accounts payable, accounts receivable, general ledger, bank reconciliations, and payroll.',
+      'Manage freight billing, ocean and air freight disbursements, customs duty payments, demurrage reconciliation, and overseas agent statements.',
+      'Ensure strict compliance with Sri Lanka Inland Revenue Department (IRD) requirements, including VAT, SVAT, SSCL, WHT, and Corporate Income Tax returns.',
+      'Prepare monthly, quarterly, and annual financial statements, profit & loss reports, and variance analyses for senior management and board review.',
+      'Monitor company cash flow, manage working capital, and maintain strong banking relationships for trade facilities and foreign exchange transactions.',
+      'Lead the external and internal audit processes, liaising with auditors to ensure clean audit reports.',
+      'Supervise and mentor the accounting team, streamlining internal controls and accounting software workflows.'
+    ],
+    qualifications: [
+      'Fully or partially qualified in CA Sri Lanka, CIMA (UK), ACCA (UK), or a Bachelor’s degree in Accounting / Finance.',
+      'Minimum of 6 years of accounting experience, with at least 2 to 3 years in a managerial or senior supervisory role (experience in freight forwarding, shipping, or logistics is a strong advantage).',
+      'Sound knowledge of Sri Lankan tax laws, VAT/SVAT systems, RAMIS, and statutory regulations.',
+      'Hands-on experience with accounting ERP software (such as QuickBooks, Sage, Xero, or specialized freight ERPs) and advanced Microsoft Excel skills.',
+      'Strong analytical and leadership skills with high integrity and commercial acumen.',
+      'Excellent communication skills to coordinate with shipping lines, overseas partners, local clients, and executive directors.'
+    ]
+  },
+
+  'supply-chain-key-account-manager': {
+    title: 'Supply Chain Key Account Manager',
+    department: 'Key Account & Client Success',
+    location: 'Colombo 13 (Hybrid), Sri Lanka',
+    timeType: 'Full Time',
+    experience: '4+ Years Key Account Experience',
+    badge: 'Key Accounts',
+    shortDesc: 'Manage strategic relationships with our largest enterprise clients (apparel, tea, retail, and manufacturing). Ensure smooth end-to-end cargo movement and exceptional customer satisfaction.',
+    companyDesc: NEPTUNE_COMPANY_DESCRIPTION,
+    rolePurpose: 'As a Supply Chain Key Account Manager at Neptune, your primary objective is to manage relationships with our largest enterprise clients—such as apparel manufacturers, tea exporters, and commercial importers—ensuring seamless end-to-end cargo movement and exceptional customer satisfaction.',
+    responsibilities: [
+      'Serve as the dedicated single point of contact for assigned key accounts, overseeing their global ocean freight, air freight, and local customs operations.',
+      'Monitor shipment milestones from origin booking to final warehouse delivery, proactively identifying potential delays and providing immediate solutions.',
+      'Conduct regular performance reviews and service update meetings with clients, sharing status reports and cost-saving opportunities.',
+      'Coordinate closely with Neptune’s operations, customs wharf team, and overseas agents to ensure client service level agreements (SLAs) are met.',
+      'Identify new logistics needs within existing accounts and propose additional solutions (such as buyer\'s consolidation, warehousing, or air-sea routing).',
+      'Manage client billing queries, rate card renewals, and dispute resolutions in a professional and prompt manner.',
+      'Gather customer feedback to continuously improve Neptune\'s service standards and operational workflows.'
+    ],
+    qualifications: [
+      'Bachelor\'s degree in Supply Chain Management, Logistics, Business Administration, or related discipline; or equivalent practical experience.',
+      'Minimum 4 years of experience in key account management, customer service, or operations within the freight forwarding or logistics sector in Sri Lanka.',
+      'Good understanding of international trade terms (Incoterms 2020), ocean & air shipping documentation, and Sri Lankan import/export processes.',
+      'Strong relationship-building skills with a customer-centric and problem-solving mindset.',
+      'Excellent communication, presentation, and negotiation skills in English (Sinhala/Tamil fluency is beneficial).',
+      'Ability to handle pressure and manage multiple client requests simultaneously with great attention to detail.'
+    ]
+  },
+
+  'logistics-wharf-documentation-officer': {
+    title: 'Logistics & Wharf Documentation Officer',
+    department: 'Customs House Agency (CHA)',
+    location: 'Colombo 13 & Port of Colombo, Sri Lanka',
+    timeType: 'Full Time',
+    experience: '2+ Years Shipping Documentation',
+    badge: 'Wharf Documentation',
+    shortDesc: 'Process all shipping, Delivery Order (DO), and customs documentation accurately and on time, ensuring cargo moves through Colombo Port terminals and air cargo facilities without delays or extra charges.',
+    companyDesc: NEPTUNE_COMPANY_DESCRIPTION,
+    rolePurpose: 'As a Logistics & Wharf Documentation Officer at Neptune, your primary objective is to process all shipping and customs documentation accurately and on time, ensuring cargo moves through Colombo Port terminals and air cargo facilities without delays or extra charges.',
+    responsibilities: [
+      'Check and verify all incoming shipping documents (Bill of Lading, Invoice, Packing List, Certificate of Origin) for accuracy before submission.',
+      'Collect Delivery Orders (DO) from shipping lines and consolidators, and process payments for terminal handling, freight, and container deposits.',
+      'Prepare CusDec entries and supporting documentation for submission to Sri Lanka Customs.',
+      'Liaise with Colombo Port terminal offices (JCT, SAGT, CICT) and Sri Lanka Ports Authority (SLPA) for gate passes, container de-stuffing, and loading permits.',
+      'Track container detention and demurrage free days, making sure all shipments are cleared within the allowed free time.',
+      'Assist wharf clerks on-site with documentation endorsements, cargo inspections, and customs assessments.',
+      'Maintain accurate digital and physical documentation records for every cleared shipment.'
+    ],
+    qualifications: [
+      'Successful completion of G.C.E. A/Levels; a diploma or certificate in Logistics, Supply Chain, or Customs Clearance is an added advantage.',
+      'Minimum 2 years of experience in shipping documentation, freight forwarding, or customs wharf operations in Sri Lanka.',
+      'Familiarity with shipping line Delivery Order (DO) procedures, container terminal procedures, and basic ASYCUDA documentation.',
+      'Basic understanding of Sri Lankan port customs rules, container clearance, and port gate pass procedures.',
+      'Good computer literacy (email, MS Excel, MS Word, and document scanning).',
+      'Good communication skills in Sinhala and English; ability to work diligently under time constraints.',
+      'High attention to detail and honest, dependable work ethic.'
+    ]
+  }
+};
+
 function initCareerDetailPage() {
   const titleEl = document.getElementById('job-detail-title');
   if (!titleEl) return;
@@ -1498,49 +1650,106 @@ function initCareerDetailPage() {
   const contentEl = document.getElementById('job-detail-content');
   const notFoundEl = document.getElementById('job-detail-notfound');
   const crumbEl = document.getElementById('job-detail-crumb');
-  const slug = new URLSearchParams(window.location.search).get('job');
+  const detailsOverview = document.getElementById('job-details-overview');
 
-  function showNotFound() {
+  const params = new URLSearchParams(window.location.search);
+  const rawSlug = params.get('job');
+  // Default to business-development-manager if no param is given
+  const slug = rawSlug ? rawSlug.trim().toLowerCase() : 'business-development-manager';
+
+  const job = NEPTUNE_JOBS[slug];
+
+  if (!job) {
     if (contentEl) contentEl.hidden = true;
+    if (detailsOverview) detailsOverview.hidden = true;
     if (notFoundEl) notFoundEl.hidden = false;
-  }
-
-  if (!slug) {
-    showNotFound();
+    document.title = 'Position Not Found | Careers | Neptune Logistics Colombo';
     return;
   }
 
-  fetch('careers.html')
-    .then((res) => res.text())
-    .then((html) => {
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      const item = doc.querySelector(`.vacancy-item[data-slug="${slug}"]`);
-      if (!item) {
-        showNotFound();
-        return;
-      }
+  // Restore content visibility if previously hidden
+  if (contentEl) contentEl.hidden = false;
+  if (detailsOverview) detailsOverview.hidden = false;
+  if (notFoundEl) notFoundEl.hidden = true;
 
-      const title = item.querySelector('.vacancy-title')?.textContent.trim() || 'Open Position';
-      const desc = item.querySelector('.vacancy-text')?.textContent.trim() || '';
-      const tags = Array.from(item.querySelectorAll('.vacancy-tag'));
-      const department = tags.length ? tags[tags.length - 1].textContent.trim() : '';
+  // Set Page Title and Breadcrumb
+  document.title = `${job.title} | Careers | Neptune Logistics Colombo`;
+  titleEl.textContent = job.title;
+  if (crumbEl) crumbEl.textContent = job.title;
 
-      document.title = `${title} | Careers | Neptune Logistics`;
-      titleEl.textContent = title;
-      if (crumbEl) crumbEl.textContent = title;
-      document.getElementById('job-detail-desc').textContent = desc;
-      document.getElementById('job-detail-dept').textContent = department;
+  // Set Department and Summary
+  const deptEl = document.getElementById('job-detail-dept');
+  if (deptEl) deptEl.textContent = job.department;
 
-      const tagWrap = document.getElementById('job-detail-tags');
-      if (tagWrap) {
-        tagWrap.innerHTML = '';
-        tags.forEach((tag) => tagWrap.appendChild(tag.cloneNode(true)));
-      }
+  const descEl = document.getElementById('job-detail-desc');
+  if (descEl) descEl.textContent = job.shortDesc;
 
-      const applyBtn = document.getElementById('job-detail-apply-btn');
-      if (applyBtn) applyBtn.setAttribute('data-job', title);
-    })
-    .catch(showNotFound);
+  // Build Tags
+  const tagWrap = document.getElementById('job-detail-tags');
+  if (tagWrap) {
+    tagWrap.innerHTML = `
+      <span class="vacancy-tag">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        ${job.location}
+      </span>
+      <span class="vacancy-tag">
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        ${job.timeType}
+      </span>
+      <span class="vacancy-tag">${job.experience}</span>
+      <span class="vacancy-tag" style="background: var(--blue-light); color: var(--primary-blue);">${job.badge}</span>
+    `;
+  }
+
+  // Set Company Description & Role Purpose
+  const companyDescEl = document.getElementById('job-company-desc');
+  if (companyDescEl) companyDescEl.textContent = job.companyDesc;
+
+  const rolePurposeEl = document.getElementById('job-role-purpose');
+  if (rolePurposeEl) rolePurposeEl.textContent = job.rolePurpose;
+
+  // Helper for checkmarks
+  const checkSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
+
+  // Set Responsibilities List
+  const respList = document.getElementById('job-responsibilities-list');
+  if (respList && Array.isArray(job.responsibilities)) {
+    respList.innerHTML = job.responsibilities.map(item => `
+      <li>
+        ${checkSvg}
+        <span>${item}</span>
+      </li>
+    `).join('');
+  }
+
+  // Set Qualifications List
+  const qualList = document.getElementById('job-qualifications-list');
+  if (qualList && Array.isArray(job.qualifications)) {
+    qualList.innerHTML = job.qualifications.map(item => `
+      <li>
+        ${checkSvg}
+        <span>${item}</span>
+      </li>
+    `).join('');
+  }
+
+  // Set Sidebar Overview Specs
+  const sideRole = document.getElementById('job-side-role');
+  if (sideRole) sideRole.textContent = job.title;
+
+  const sideLoc = document.getElementById('job-side-loc');
+  if (sideLoc) sideLoc.textContent = job.location;
+
+  const sideType = document.getElementById('job-side-type');
+  if (sideType) sideType.textContent = job.timeType;
+
+  const sideDept = document.getElementById('job-side-dept');
+  if (sideDept) sideDept.textContent = job.department;
+
+  // Bind All Apply Buttons on page to open modal for this position
+  document.querySelectorAll('.btn-apply-job').forEach((btn) => {
+    btn.setAttribute('data-job', job.title);
+  });
 }
 
 /* ==========================================================================

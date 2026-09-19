@@ -4,7 +4,7 @@
     <div class="footer-top-grid">
 
       <div class="footer-col brand-col">
-        <a href="index.html" class="footer-brand-link">
+        <a href="/" class="footer-brand-link">
           <img src="assets/logo-transparent.webp" alt="Neptune Logistics Logo" class="footer-logo" width="240" height="62" />
         </a>
         <p class="footer-tagline">
@@ -58,11 +58,11 @@
       <div class="footer-col">
         <h4 class="footer-heading">Navigate</h4>
         <ul class="footer-links-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
 
@@ -70,7 +70,7 @@
 
     <div class="footer-cta-row">
       <div class="footer-cta-text">Ready to ship with Neptune?</div>
-      <a href="contact.html" class="uthao-button primary">
+      <a href="/contact" class="uthao-button primary">
         <span class="button-text _01">Get a Quote</span>
         <span class="button-text _02" aria-hidden="true">Get a Quote</span>
       </a>
@@ -81,9 +81,9 @@
         &copy; <span id="year">2026</span> Neptune Logistics (Pvt) Ltd. All rights reserved. Registered in Sri Lanka.
       </p>
       <div class="footer-legal-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="/privacy-policy">Privacy Policy</a>
         <span>&bull;</span>
-        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="/terms-of-use">Terms of Use</a>
       </div>
     </div>
   </div>

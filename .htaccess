@@ -1,6 +1,9 @@
 # Neptune Logistics — Apache config for cPanel hosting
 # Replaces vercel.json / middleware.js, which only work on Vercel.
 
+# Disable MultiViews so mod_rewrite takes priority over file extension guessing
+Options -MultiViews
+
 # ---------- HTTPS + canonical host ----------
 RewriteEngine On
 RewriteCond %{HTTPS} off
@@ -8,6 +11,31 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteCond %{HTTP_HOST} ^www\.neptunelogistics\.lk$ [NC]
 RewriteRule ^ https://neptunelogistics.lk%{REQUEST_URI} [L,R=301]
+
+# ---------- Clean URLs (Strip .html and rewrite extensionless URLs) ----------
+# 1. Externally redirect direct requests for /index.html to /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+index\.html([?\s]) [NC]
+RewriteRule ^ / [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?/)index\.html([?\s]) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 2. Redirect legacy /career.html or /career to /careers
+RewriteRule ^career(\.html)?$ /careers [R=301,L]
+
+# 3. Redirect legacy service URLs if requested
+RewriteRule ^services/sea-freight(\.html)?$ /ocean-cargo [R=301,L]
+RewriteRule ^services/air-freight(\.html)?$ /air-cargo [R=301,L]
+RewriteRule ^services/roadways(\.html)?$ /container-cargo [R=301,L]
+
+# 4. Externally redirect any *.html file requests to extensionless clean URL (preserve query strings)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)\.html([?\s]) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# 5. Internally rewrite extensionless requests to *.html if the file exists
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*?)/?$ $1.html [L,QSA]
 
 # ---------- Custom error page ----------
 ErrorDocument 404 /404.html
@@ -44,6 +72,7 @@ AddType application/json .json
   ExpiresActive On
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
 </IfModule>

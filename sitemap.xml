@@ -2,115 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://neptunelogistics.lk/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/about.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://neptunelogistics.lk/about</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/contact.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/contact</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/careers.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://neptunelogistics.lk/careers</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://neptunelogistics.lk/faq</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/faq.html</loc>
-    <lastmod>2026-09-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://neptunelogistics.lk/ocean-cargo.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/ocean-cargo</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/air-cargo.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/air-cargo</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/container-cargo.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/container-cargo</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/rail-transport.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/rail-transport</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/last-mile-delivery.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/last-mile-delivery</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/services/customs-clearance.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/services/customs-clearance</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/services/warehousing.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/services/warehousing</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/services/port-handling.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/services/port-handling</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/industries/aviation-aerospace.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/industries/aviation-aerospace</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/industries/automotive.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/industries/automotive</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/industries/pharmaceutical.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/industries/pharmaceutical</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/industries/aid-relief.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://neptunelogistics.lk/industries/aid-relief</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/privacy-policy.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://neptunelogistics.lk/privacy-policy</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://neptunelogistics.lk/terms-of-use.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <loc>https://neptunelogistics.lk/terms-of-use</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

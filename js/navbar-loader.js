@@ -11,7 +11,7 @@
   const root = isSubdir ? '../' : './';
 
   function adjustPaths(html) {
-    return html.replace(/(href|src)="(?!https?:\/\/|#|tel:|mailto:)/g, `$1="${root}`);
+    return html.replace(/(href|src)="(?!https?:\/\/|#|tel:|mailto:|\/)/g, `$1="${root}`);
   }
 
   fetch(root + 'components/navbar.html?v=2.0.0')
