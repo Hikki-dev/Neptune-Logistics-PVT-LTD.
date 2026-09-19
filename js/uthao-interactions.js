@@ -1539,6 +1539,8 @@ function initCareerApplyModal() {
       }
 
       try {
+        const base64Data = await readFileAsBase64(resumeFile);
+
         const expMap = {
           'entry': 'Entry Level / Graduate',
           '1-3': '1 - 3 Years Relevant Experience',
@@ -1561,7 +1563,7 @@ function initCareerApplyModal() {
           linkedin_url: (data.get('linkedin_url') || '').trim(),
           file_base64: base64Data,
           file_name: resumeFile ? resumeFile.name : 'candidate_cv.pdf',
-          status: '🆕 New Application',
+          status: 'New Application',
           hr_remarks: ''
         };
 
