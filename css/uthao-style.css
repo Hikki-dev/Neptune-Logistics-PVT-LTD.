@@ -4473,6 +4473,73 @@ body.has-cookie-banner .whatsapp-float-btn {
   color: var(--primary-blue);
 }
 
+.career-form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.bento-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .bento-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .career-modal-overlay {
+    padding: 12px;
+  }
+
+  .career-modal-content {
+    max-height: 94vh;
+    border-radius: 16px;
+  }
+
+  .career-modal-header {
+    padding: 20px 18px 16px;
+  }
+
+  .career-modal-header h3 {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .career-modal-body {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .career-form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hero-text-input,
+  .hero-select-input,
+  .intl-phone-field input[type="tel"],
+  .intl-phone-search {
+    font-size: 16px; /* 16px prevents iOS Safari from auto-zooming on focus */
+    height: 48px;
+  }
+
+  .intl-phone-trigger {
+    height: 48px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
+
+  .cv-dropzone {
+    padding: 22px 14px;
+  }
+}
+
 .hero-text-input,
 .hero-select-input {
   width: 100%;
